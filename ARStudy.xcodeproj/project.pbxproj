@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		1897CC8B24519B85006D6B88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CC8A24519B85006D6B88 /* AppDelegate.swift */; };
 		1897CC8D24519B85006D6B88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CC8C24519B85006D6B88 /* SceneDelegate.swift */; };
-		1897CC8F24519B85006D6B88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CC8E24519B85006D6B88 /* ViewController.swift */; };
-		1897CC9224519B85006D6B88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1897CC9024519B85006D6B88 /* Main.storyboard */; };
 		1897CC9424519B8B006D6B88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1897CC9324519B8B006D6B88 /* Assets.xcassets */; };
 		1897CC9724519B8B006D6B88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1897CC9524519B8B006D6B88 /* LaunchScreen.storyboard */; };
+		1897CC9F24519BD3006D6B88 /* LiveVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CC9E24519BD3006D6B88 /* LiveVideoViewController.swift */; };
+		1897CCA124519C5C006D6B88 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CCA024519C5C006D6B88 /* Extension.swift */; };
+		1897CCA524519E1F006D6B88 /* kingdombacteria.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1897CCA224519E1E006D6B88 /* kingdombacteria.mp4 */; };
+		1897CCA624519E1F006D6B88 /* influenza.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1897CCA324519E1E006D6B88 /* influenza.mp4 */; };
+		1897CCAD2451A05E006D6B88 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1897CCAC2451A05E006D6B88 /* art.scnassets */; };
+		1897CCAF2451A336006D6B88 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CCAE2451A336006D6B88 /* MainTabBarController.swift */; };
+		1897CCB22451A6D6006D6B88 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CCB12451A6D6006D6B88 /* NotesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1897CC8724519B85006D6B88 /* tese.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tese.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1897CC8724519B85006D6B88 /* ARStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1897CC8A24519B85006D6B88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1897CC8C24519B85006D6B88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1897CC8E24519B85006D6B88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1897CC9124519B85006D6B88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1897CC9324519B8B006D6B88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1897CC9624519B8B006D6B88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1897CC9824519B8B006D6B88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1897CC9E24519BD3006D6B88 /* LiveVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoViewController.swift; sourceTree = "<group>"; };
+		1897CCA024519C5C006D6B88 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		1897CCA224519E1E006D6B88 /* kingdombacteria.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = kingdombacteria.mp4; sourceTree = "<group>"; };
+		1897CCA324519E1E006D6B88 /* influenza.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = influenza.mp4; sourceTree = "<group>"; };
+		1897CCAC2451A05E006D6B88 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		1897CCAE2451A336006D6B88 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		1897CCB12451A6D6006D6B88 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +58,7 @@
 		1897CC8824519B85006D6B88 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1897CC8724519B85006D6B88 /* tese.app */,
+				1897CC8724519B85006D6B88 /* ARStudy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,23 +66,36 @@
 		1897CC8924519B85006D6B88 /* tese */ = {
 			isa = PBXGroup;
 			children = (
+				1897CCA224519E1E006D6B88 /* kingdombacteria.mp4 */,
+				1897CCA324519E1E006D6B88 /* influenza.mp4 */,
 				1897CC8A24519B85006D6B88 /* AppDelegate.swift */,
 				1897CC8C24519B85006D6B88 /* SceneDelegate.swift */,
-				1897CC8E24519B85006D6B88 /* ViewController.swift */,
-				1897CC9024519B85006D6B88 /* Main.storyboard */,
 				1897CC9324519B8B006D6B88 /* Assets.xcassets */,
 				1897CC9524519B8B006D6B88 /* LaunchScreen.storyboard */,
 				1897CC9824519B8B006D6B88 /* Info.plist */,
+				1897CCB02451A3D5006D6B88 /* Controllers */,
+				1897CCA024519C5C006D6B88 /* Extension.swift */,
+				1897CCAC2451A05E006D6B88 /* art.scnassets */,
 			);
 			path = tese;
+			sourceTree = "<group>";
+		};
+		1897CCB02451A3D5006D6B88 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1897CC9E24519BD3006D6B88 /* LiveVideoViewController.swift */,
+				1897CCAE2451A336006D6B88 /* MainTabBarController.swift */,
+				1897CCB12451A6D6006D6B88 /* NotesViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1897CC8624519B85006D6B88 /* tese */ = {
+		1897CC8624519B85006D6B88 /* ARStudy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1897CC9B24519B8B006D6B88 /* Build configuration list for PBXNativeTarget "tese" */;
+			buildConfigurationList = 1897CC9B24519B8B006D6B88 /* Build configuration list for PBXNativeTarget "ARStudy" */;
 			buildPhases = (
 				1897CC8324519B85006D6B88 /* Sources */,
 				1897CC8424519B85006D6B88 /* Frameworks */,
@@ -82,9 +105,9 @@
 			);
 			dependencies = (
 			);
-			name = tese;
+			name = ARStudy;
 			productName = tese;
-			productReference = 1897CC8724519B85006D6B88 /* tese.app */;
+			productReference = 1897CC8724519B85006D6B88 /* ARStudy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +125,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1897CC8224519B85006D6B88 /* Build configuration list for PBXProject "tese" */;
+			buildConfigurationList = 1897CC8224519B85006D6B88 /* Build configuration list for PBXProject "ARStudy" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +138,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1897CC8624519B85006D6B88 /* tese */,
+				1897CC8624519B85006D6B88 /* ARStudy */,
 			);
 		};
 /* End PBXProject section */
@@ -126,8 +149,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1897CC9724519B8B006D6B88 /* LaunchScreen.storyboard in Resources */,
+				1897CCAD2451A05E006D6B88 /* art.scnassets in Resources */,
 				1897CC9424519B8B006D6B88 /* Assets.xcassets in Resources */,
-				1897CC9224519B85006D6B88 /* Main.storyboard in Resources */,
+				1897CCA524519E1F006D6B88 /* kingdombacteria.mp4 in Resources */,
+				1897CCA624519E1F006D6B88 /* influenza.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +163,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1897CC8F24519B85006D6B88 /* ViewController.swift in Sources */,
+				1897CCA124519C5C006D6B88 /* Extension.swift in Sources */,
 				1897CC8B24519B85006D6B88 /* AppDelegate.swift in Sources */,
+				1897CCB22451A6D6006D6B88 /* NotesViewController.swift in Sources */,
+				1897CCAF2451A336006D6B88 /* MainTabBarController.swift in Sources */,
+				1897CC9F24519BD3006D6B88 /* LiveVideoViewController.swift in Sources */,
 				1897CC8D24519B85006D6B88 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +175,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1897CC9024519B85006D6B88 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1897CC9124519B85006D6B88 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1897CC9524519B8B006D6B88 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -319,7 +339,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1897CC8224519B85006D6B88 /* Build configuration list for PBXProject "tese" */ = {
+		1897CC8224519B85006D6B88 /* Build configuration list for PBXProject "ARStudy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1897CC9924519B8B006D6B88 /* Debug */,
@@ -328,7 +348,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1897CC9B24519B8B006D6B88 /* Build configuration list for PBXNativeTarget "tese" */ = {
+		1897CC9B24519B8B006D6B88 /* Build configuration list for PBXNativeTarget "ARStudy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1897CC9C24519B8B006D6B88 /* Debug */,

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:tese.xcodeproj">
+      location = "self:/Users/apple/Desktop/Development/tese/ARStudy.xcodeproj">
    </FileRef>
 </Workspace>
