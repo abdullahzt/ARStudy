@@ -27,15 +27,19 @@ class MainTabBarController: UITabBarController {
         self.tabBar.barStyle = .black
         self.tabBar.tintColor = UIColor(red: 215/255, green: 56/255, blue: 94/255, alpha: 1)
         
-        let lvcontroller = LiveVideoViewController()
-        lvcontroller.tabBarItem.title = "Video"
-        lvcontroller.tabBarItem.image = UIImage(systemName: "video.fill")
+        let liveVideoController = LiveVideoViewController()
+        liveVideoController.tabBarItem.title = "Video"
+        liveVideoController.tabBarItem.image = UIImage(systemName: "video.fill")
         
-        let nvcontroller = NotesViewController()
-        nvcontroller.tabBarItem.title = "Notes"
-        nvcontroller.tabBarItem.image = UIImage(systemName: "book.fill")
+        let notesViewcontroller = NotesViewController()
+        notesViewcontroller.tabBarItem.title = "Notes"
+        notesViewcontroller.tabBarItem.image = UIImage(systemName: "book.fill")
         
-        viewControllers = [lvcontroller, nvcontroller]
+        let modelViewController = ModelViewController()
+        modelViewController.tabBarItem.title = "Models"
+        modelViewController.tabBarItem.image = UIImage(systemName: "square.stack.3d.up.fill")
+        
+        viewControllers = [liveVideoController, modelViewController, notesViewcontroller]
     }
     
 }

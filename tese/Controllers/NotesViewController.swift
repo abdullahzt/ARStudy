@@ -16,6 +16,17 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     
     private let sceneView = ARSCNView()
     
+    private lazy var addNotesButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setDimensions(width: 50, height: 50)
+        button.layer.cornerRadius = 25
+        button.backgroundColor = .systemBackground
+        let image = UIImage(systemName: "pencil.tip.crop.circle.badge.plus")
+        button.setImage(image, for: .normal)
+        button.tintColor = .black
+        return button
+    }()
+    
     
     //MARK: - LifeCycle
     
@@ -29,7 +40,7 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = false
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene()
         
         // Set the scene to the view
         sceneView.scene = scene
@@ -64,6 +75,10 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     func configureUI() {
         view.addSubview(sceneView)
         sceneView.anchor(top: self.view.topAnchor, left: self.view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        
+        view.addSubview(addNotesButton)
+        addNotesButton.anchor(bottom: view.bottomAnchor, right: view.rightAnchor, paddingBottom: 70, paddingRight: 20)
+        addNotesButton.disable()
 
     }
     

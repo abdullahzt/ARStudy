@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1843FD9E24545BA2009EC184 /* ModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843FD9D24545BA2009EC184 /* ModelViewController.swift */; };
 		1897CC8B24519B85006D6B88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CC8A24519B85006D6B88 /* AppDelegate.swift */; };
 		1897CC8D24519B85006D6B88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CC8C24519B85006D6B88 /* SceneDelegate.swift */; };
 		1897CC9424519B8B006D6B88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1897CC9324519B8B006D6B88 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1843FD9D24545BA2009EC184 /* ModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewController.swift; sourceTree = "<group>"; };
 		1897CC8724519B85006D6B88 /* ARStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1897CC8A24519B85006D6B88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1897CC8C24519B85006D6B88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1843FD9C24543A86009EC184 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1897CCA024519C5C006D6B88 /* Extension.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		1897CC7E24519B85006D6B88 = {
 			isa = PBXGroup;
 			children = (
@@ -74,7 +84,7 @@
 				1897CC9524519B8B006D6B88 /* LaunchScreen.storyboard */,
 				1897CC9824519B8B006D6B88 /* Info.plist */,
 				1897CCB02451A3D5006D6B88 /* Controllers */,
-				1897CCA024519C5C006D6B88 /* Extension.swift */,
+				1843FD9C24543A86009EC184 /* Utilities */,
 				1897CCAC2451A05E006D6B88 /* art.scnassets */,
 			);
 			path = tese;
@@ -86,6 +96,7 @@
 				1897CC9E24519BD3006D6B88 /* LiveVideoViewController.swift */,
 				1897CCAE2451A336006D6B88 /* MainTabBarController.swift */,
 				1897CCB12451A6D6006D6B88 /* NotesViewController.swift */,
+				1843FD9D24545BA2009EC184 /* ModelViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -168,6 +179,7 @@
 				1897CCB22451A6D6006D6B88 /* NotesViewController.swift in Sources */,
 				1897CCAF2451A336006D6B88 /* MainTabBarController.swift in Sources */,
 				1897CC9F24519BD3006D6B88 /* LiveVideoViewController.swift in Sources */,
+				1843FD9E24545BA2009EC184 /* ModelViewController.swift in Sources */,
 				1897CC8D24519B85006D6B88 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
