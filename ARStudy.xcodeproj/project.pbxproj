@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1843FD9E24545BA2009EC184 /* ModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843FD9D24545BA2009EC184 /* ModelViewController.swift */; };
+		1844A313245768A10001588A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1844A312245768A10001588A /* Assets.xcassets */; };
 		1897CC8B24519B85006D6B88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CC8A24519B85006D6B88 /* AppDelegate.swift */; };
 		1897CC8D24519B85006D6B88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CC8C24519B85006D6B88 /* SceneDelegate.swift */; };
-		1897CC9424519B8B006D6B88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1897CC9324519B8B006D6B88 /* Assets.xcassets */; };
 		1897CC9724519B8B006D6B88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1897CC9524519B8B006D6B88 /* LaunchScreen.storyboard */; };
 		1897CC9F24519BD3006D6B88 /* LiveVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CC9E24519BD3006D6B88 /* LiveVideoViewController.swift */; };
 		1897CCA124519C5C006D6B88 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CCA024519C5C006D6B88 /* Extension.swift */; };
@@ -23,10 +23,10 @@
 
 /* Begin PBXFileReference section */
 		1843FD9D24545BA2009EC184 /* ModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewController.swift; sourceTree = "<group>"; };
+		1844A312245768A10001588A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1897CC8724519B85006D6B88 /* ARStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1897CC8A24519B85006D6B88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1897CC8C24519B85006D6B88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1897CC9324519B8B006D6B88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1897CC9624519B8B006D6B88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1897CC9824519B8B006D6B88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1897CC9E24519BD3006D6B88 /* LiveVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoViewController.swift; sourceTree = "<group>"; };
@@ -76,11 +76,11 @@
 		1897CC8924519B85006D6B88 /* tese */ = {
 			isa = PBXGroup;
 			children = (
+				1844A312245768A10001588A /* Assets.xcassets */,
 				1897CCA224519E1E006D6B88 /* kingdombacteria.mp4 */,
 				1897CCA324519E1E006D6B88 /* influenza.mp4 */,
 				1897CC8A24519B85006D6B88 /* AppDelegate.swift */,
 				1897CC8C24519B85006D6B88 /* SceneDelegate.swift */,
-				1897CC9324519B8B006D6B88 /* Assets.xcassets */,
 				1897CC9524519B8B006D6B88 /* LaunchScreen.storyboard */,
 				1897CC9824519B8B006D6B88 /* Info.plist */,
 				1897CCB02451A3D5006D6B88 /* Controllers */,
@@ -161,9 +161,9 @@
 			files = (
 				1897CC9724519B8B006D6B88 /* LaunchScreen.storyboard in Resources */,
 				1897CCAD2451A05E006D6B88 /* art.scnassets in Resources */,
-				1897CC9424519B8B006D6B88 /* Assets.xcassets in Resources */,
 				1897CCA524519E1F006D6B88 /* kingdombacteria.mp4 in Resources */,
 				1897CCA624519E1F006D6B88 /* influenza.mp4 in Resources */,
+				1844A313245768A10001588A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

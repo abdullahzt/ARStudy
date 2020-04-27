@@ -73,7 +73,6 @@ class LiveVideoViewController: UIViewController, ARSCNViewDelegate {
         
         //1. Check We Have Detected An ARImageAnchor
         guard let imageAnchor = anchor as? ARImageAnchor else { return }
-        
         //2. Create A Video Player Node For Each Detected Target
         node.addChildNode(createdVideoPlayerNodeFor(imageAnchor.referenceImage))
 
