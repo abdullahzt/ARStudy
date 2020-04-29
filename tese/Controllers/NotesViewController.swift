@@ -24,6 +24,7 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         let image = UIImage(systemName: "pencil.tip.crop.circle.badge.plus")
         button.setImage(image, for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -82,18 +83,39 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
+    //MARK: - Handlers
+    
+    @objc func addButtonTapped() {
+        
+        let controller = TypeNotesViewController()
+        let nav = UINavigationController(rootViewController: controller )
+        
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true, completion: nil)
+    }
+    
     //MARK: - ARRendering
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         
         guard let bookImageAnchor = anchor as? ARImageAnchor else { return }
         
-        print(bookImageAnchor.referenceImage.name!)
+        print("DEBUG: page is \(bookImageAnchor.referenceImage.name!)")
+        
+        DispatchQueue.main.async {
+            self.addNotesButton.enable()
+        }
+        
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         if node.isHidden {
-            print("page removed")
+            print("DEBUG: page removed")
+            
+            DispatchQueue.main.async {
+                self.addNotesButton.disable()
+            }
+            
             if let configuration = sceneView.session.configuration {
                 sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
                     node.removeFromParentNode()
