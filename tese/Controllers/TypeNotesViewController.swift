@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TypeNotesViewController: UIViewController {
+class TypeNotesViewController: UIViewController, UITextViewDelegate {
     
     //MARK: - Properties
     
@@ -20,7 +20,16 @@ class TypeNotesViewController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
+        
+        notesTextView.delegate = self
+        
+        let notificationCenter = NotificationCenter.default
+        
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
+    
     
     //MARK: - Helpers
     
@@ -30,6 +39,14 @@ class TypeNotesViewController: UIViewController {
         
         self.title = "Notes"
         
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.keyboardDonePressed))
+        toolBar.setItems([button], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        notesTextView.inputAccessoryView = toolBar
+        
+        notesTextView.isScrollEnabled = true
         view.addSubview(notesTextView)
         notesTextView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                              left: view.leftAnchor,
@@ -47,15 +64,39 @@ class TypeNotesViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController?.navigationBar.isTranslucent = false
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
         navigationItem.leftBarButtonItem?.tintColor = .white
         
     }
     
+    //MARK: - AdjustKeyboardHeight
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            notesTextView.contentInset = .zero
+        } else {
+            notesTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+        }
+
+        notesTextView.scrollIndicatorInsets = notesTextView.contentInset
+
+        let selectedRange = notesTextView.selectedRange
+        notesTextView.scrollRangeToVisible(selectedRange)
+    }
+    
+    
     //MARK: - Handlers
     
-    @objc func cancelTapped() {
+    @objc func doneTapped() {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc func keyboardDonePressed() {
+        view.endEditing(true)
+    }
 }
