@@ -14,6 +14,8 @@ class TypeNotesViewController: UIViewController, UITextViewDelegate {
     
     private let notesTextView = CaptionTextView()
     
+    private var selectedPage: Page?
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {

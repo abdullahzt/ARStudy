@@ -17,6 +17,8 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     
     let realm = try! Realm()
     
+    var pageArray: Results<Page>?
+    
     private let sceneView = ARSCNView()
     
     private lazy var addNotesButton: UIButton = {
@@ -36,7 +38,10 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureDatabase()
+        
+        pageArray = realm.objects(Page.self)
         
         configureUI()
         // Set the view's delegate
@@ -62,7 +67,7 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         if let bookImagesToTrack = ARReferenceImage.referenceImages(inGroupNamed: "BookPages", bundle: Bundle.main) {
             configuration.trackingImages = bookImagesToTrack
             
-            configuration.maximumNumberOfTrackedImages = 2
+            configuration.maximumNumberOfTrackedImages = 1
         }
         
         // Run the view's session
@@ -101,10 +106,12 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
             let page10 = Page()
             page10.title = "page-10"
             
+            self.save(page: page10)
+            
             let page11 = Page()
             page11.title = "page-11"
             
-            self.save(page: page10)
+            self.save(page: page11)
         }
     }
     
@@ -137,7 +144,12 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         
         guard let bookImageAnchor = anchor as? ARImageAnchor else { return }
         
-        print("DEBUG: page is \(bookImageAnchor.referenceImage.name!)")
+        let bookImageName = bookImageAnchor.referenceImage.name!
+        
+        DispatchQueue.main.async {
+            self.pageArray = self.pageArray?.filter("title LIKE[c] %@", bookImageName)
+            print("DEBUG: page is: \(self.pageArray![0].title)")
+        }
         
         DispatchQueue.main.async {
             self.addNotesButton.enable()
@@ -177,6 +189,9 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
             
             DispatchQueue.main.async {
                 self.addNotesButton.disable()
+                
+                //fetch pages again as currently  it has filtered pages.
+                self.pageArray = self.realm.objects(Page.self)
             }
             
             if let configuration = sceneView.session.configuration {
