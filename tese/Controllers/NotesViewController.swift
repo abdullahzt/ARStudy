@@ -16,6 +16,10 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     
     private let sceneView = ARSCNView()
     
+    private var textNode = SCNNode()
+    
+    private var bookImageNode = SCNNode()
+    
     private lazy var addNotesButton: UIButton = {
         let button = UIButton(type: .system)
         button.setDimensions(width: 50, height: 50)
@@ -108,7 +112,32 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
+    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+        let node = SCNNode()
+
+        let text = SCNText(string: "testtext", extrusionDepth: 1)
+        let material = SCNMaterial()
+
+        material.diffuse.contents = UIColor.black
+        text.materials = [material]
+
+        let textNode = SCNNode(geometry: text)
+        
+        textNode.scale = SCNVector3(x: 0.3, y: 0.3, z: 0.3)
+        
+        let x = textNode.position.x
+        let y = textNode.position.y
+        let z = textNode.position.z
+        
+        textNode.position = SCNVector3(x-10, y, z-15)
+
+        node.addChildNode(textNode)
+
+        return node
+    }
+    
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        
         if node.isHidden {
             print("DEBUG: page removed")
             
@@ -124,6 +153,8 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
             }
         }
     }
+    
+ 
 }
 
 
