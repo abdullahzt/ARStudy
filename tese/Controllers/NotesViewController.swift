@@ -9,16 +9,15 @@
 import UIKit
 import SceneKit
 import ARKit
+import RealmSwift
 
 class NotesViewController: UIViewController, ARSCNViewDelegate {
     
     //MARK: - Properties
     
+    let realm = try! Realm()
+    
     private let sceneView = ARSCNView()
-    
-    private var textNode = SCNNode()
-    
-    private var bookImageNode = SCNNode()
     
     private lazy var addNotesButton: UIButton = {
         let button = UIButton(type: .system)
@@ -37,6 +36,8 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDatabase()
+        
         configureUI()
         // Set the view's delegate
         sceneView.delegate = self
@@ -87,6 +88,38 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
+    func configureDatabase() {
+        //If app has launched for the first time add pages to database.
+        //else pages are already present in database.
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        if (!appDelegate.hasAlreadyLaunched) {
+           //first time launch.
+            print("DEBUG: first time launch.")
+            
+            let page10 = Page()
+            page10.title = "page-10"
+            
+            let page11 = Page()
+            page11.title = "page-11"
+            
+            self.save(page: page10)
+        }
+    }
+    
+    func save(page: Page) {
+        
+        do {
+            try realm.write {
+                realm.add(page)
+            }
+        } catch {
+            print("Error saving context:  \(error)")
+        }
+        
+    }
+    
     //MARK: - Handlers
     
     @objc func addButtonTapped() {
@@ -123,6 +156,7 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
 
         let textNode = SCNNode(geometry: text)
         
+        //moove text relative to current position.
         textNode.scale = SCNVector3(x: 0.3, y: 0.3, z: 0.3)
         
         let x = textNode.position.x

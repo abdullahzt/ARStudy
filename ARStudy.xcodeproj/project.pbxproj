@@ -21,6 +21,7 @@
 		1897CCAD2451A05E006D6B88 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1897CCAC2451A05E006D6B88 /* art.scnassets */; };
 		1897CCAF2451A336006D6B88 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CCAE2451A336006D6B88 /* MainTabBarController.swift */; };
 		1897CCB22451A6D6006D6B88 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CCB12451A6D6006D6B88 /* NotesViewController.swift */; };
+		18A0725C245E0F79000AA8A0 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0725B245E0F79000AA8A0 /* Page.swift */; };
 		E69925C080971C48207AF723 /* Pods_ARStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C729CE6165E200E7CE11D2 /* Pods_ARStudy.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		1897CCAC2451A05E006D6B88 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		1897CCAE2451A336006D6B88 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1897CCB12451A6D6006D6B88 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		18A0725B245E0F79000AA8A0 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		59C729CE6165E200E7CE11D2 /* Pods_ARStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70873A0A38B23CFE938A43BF /* Pods-ARStudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARStudy.debug.xcconfig"; path = "Target Support Files/Pods-ARStudy/Pods-ARStudy.debug.xcconfig"; sourceTree = "<group>"; };
 		70FE74E10E928CA0731F54AC /* Pods-ARStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARStudy.release.xcconfig"; path = "Target Support Files/Pods-ARStudy/Pods-ARStudy.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		18A0725A245E0D6A000AA8A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				18A0725B245E0F79000AA8A0 /* Page.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				1897CC8B24519B85006D6B88 /* AppDelegate.swift in Sources */,
 				187E0AEE2459FE9D00A6472A /* TypeNotesViewController.swift in Sources */,
 				1897CCB22451A6D6006D6B88 /* NotesViewController.swift in Sources */,
+				18A0725C245E0F79000AA8A0 /* Page.swift in Sources */,
 				1897CCAF2451A336006D6B88 /* MainTabBarController.swift in Sources */,
 				1897CC9F24519BD3006D6B88 /* LiveVideoViewController.swift in Sources */,
 				187E0AF1245A0A5300A6472A /* CaptionTextView.swift in Sources */,
