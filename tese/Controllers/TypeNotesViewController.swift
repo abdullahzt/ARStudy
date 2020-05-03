@@ -14,7 +14,7 @@ class TypeNotesViewController: UIViewController, UITextViewDelegate {
     
     private let notesTextView = CaptionTextView()
     
-    private var selectedPage: Page?
+    private var selectedPage: Page
     
     //MARK: - LifeCycle
     
@@ -30,6 +30,15 @@ class TypeNotesViewController: UIViewController, UITextViewDelegate {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    init(page: Page) {
+        selectedPage = page
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     

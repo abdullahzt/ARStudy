@@ -19,6 +19,8 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     
     var pageArray: Results<Page>?
     
+    private var selectedPage: Page?
+    
     private let sceneView = ARSCNView()
     
     private lazy var addNotesButton: UIButton = {
@@ -127,11 +129,51 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
+    func handlePageAppear(withImageAnchor bookImageAnchor: ARImageAnchor) {
+        
+        let bookImageName = bookImageAnchor.referenceImage.name!
+        
+        DispatchQueue.main.async {
+            self.pageArray = self.pageArray?.filter("title LIKE[c] %@", bookImageName)
+            print("DEBUG: page is: \(self.pageArray![0].title)")
+            self.selectedPage = self.pageArray?[0]
+        }
+        
+        DispatchQueue.main.async {
+            self.addNotesButton.enable()
+        }
+        
+    }
+    
+    func handlePageDissapear() {
+        
+        print("DEBUG: page removed")
+        
+        DispatchQueue.main.async {
+            self.addNotesButton.disable()
+            
+            self.selectedPage = nil
+            
+            //fetch pages again as currently  it has filtered pages.
+            self.pageArray = self.realm.objects(Page.self)
+        }
+        
+        if let configuration = sceneView.session.configuration {
+            sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+                node.removeFromParentNode()
+            }
+            sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        }
+        
+    }
+    
     //MARK: - Handlers
     
     @objc func addButtonTapped() {
         
-        let controller = TypeNotesViewController()
+        guard let selectedPage = selectedPage else { return }
+        
+        let controller = TypeNotesViewController(page: selectedPage)
         let nav = UINavigationController(rootViewController: controller )
         
         nav.modalPresentationStyle = .fullScreen
@@ -144,16 +186,7 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         
         guard let bookImageAnchor = anchor as? ARImageAnchor else { return }
         
-        let bookImageName = bookImageAnchor.referenceImage.name!
-        
-        DispatchQueue.main.async {
-            self.pageArray = self.pageArray?.filter("title LIKE[c] %@", bookImageName)
-            print("DEBUG: page is: \(self.pageArray![0].title)")
-        }
-        
-        DispatchQueue.main.async {
-            self.addNotesButton.enable()
-        }
+        handlePageAppear(withImageAnchor: bookImageAnchor)
         
     }
     
@@ -185,21 +218,7 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         
         if node.isHidden {
-            print("DEBUG: page removed")
-            
-            DispatchQueue.main.async {
-                self.addNotesButton.disable()
-                
-                //fetch pages again as currently  it has filtered pages.
-                self.pageArray = self.realm.objects(Page.self)
-            }
-            
-            if let configuration = sceneView.session.configuration {
-                sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
-                    node.removeFromParentNode()
-                }
-                sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-            }
+            handlePageDissapear()
         }
     }
     
