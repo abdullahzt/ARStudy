@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18420DE1245F591A0034B4EF /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18420DE0245F591A0034B4EF /* MainScreenController.swift */; };
 		1843FD9E24545BA2009EC184 /* ModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843FD9D24545BA2009EC184 /* ModelViewController.swift */; };
 		1844A313245768A10001588A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1844A312245768A10001588A /* Assets.xcassets */; };
 		187E0AEE2459FE9D00A6472A /* TypeNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E0AED2459FE9D00A6472A /* TypeNotesViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18420DE0245F591A0034B4EF /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		1843FD9D24545BA2009EC184 /* ModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewController.swift; sourceTree = "<group>"; };
 		1844A312245768A10001588A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		187E0AED2459FE9D00A6472A /* TypeNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeNotesViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				1897CCB12451A6D6006D6B88 /* NotesViewController.swift */,
 				1843FD9D24545BA2009EC184 /* ModelViewController.swift */,
 				187E0AED2459FE9D00A6472A /* TypeNotesViewController.swift */,
+				18420DE0245F591A0034B4EF /* MainScreenController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				1897CC9F24519BD3006D6B88 /* LiveVideoViewController.swift in Sources */,
 				187E0AF1245A0A5300A6472A /* CaptionTextView.swift in Sources */,
 				1843FD9E24545BA2009EC184 /* ModelViewController.swift in Sources */,
+				18420DE1245F591A0034B4EF /* MainScreenController.swift in Sources */,
 				1897CC8D24519B85006D6B88 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

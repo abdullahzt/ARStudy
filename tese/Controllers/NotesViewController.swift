@@ -173,6 +173,20 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
+    func newLineText(fromText text: String) -> String? {
+        
+        var text = text
+        
+        let numberOfNewline = text.count / 32
+        
+        for x in 0...numberOfNewline {
+            text.insert("\n", at: text.index(text.startIndex, offsetBy: 32*x))
+        }
+        
+        return text
+        
+    }
+    
     //MARK: - Handlers
     
     @objc func addButtonTapped() {
@@ -194,13 +208,13 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         
         material.diffuse.contents = UIColor.black
         
-        let text = SCNText(string: noteText, extrusionDepth: 1)
+        let text = SCNText(string: newLineText(fromText: noteText!), extrusionDepth: 1)
         text.materials = [material]
         
         let textNode = SCNNode(geometry: text)
         
         //moove text relative to current position.
-        textNode.scale = SCNVector3(x: 0.2, y: 0.2, z: 0.2)
+        textNode.scale = SCNVector3(x: 0.1, y: 0.1, z: 0.1)
         
         let x = textNode.position.x
         let y = textNode.position.y
