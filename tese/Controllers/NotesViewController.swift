@@ -23,6 +23,9 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     
     private let sceneView = ARSCNView()
     
+    var noteText: String?
+
+    
     private lazy var addNotesButton: UIButton = {
         let button = UIButton(type: .system)
         button.setDimensions(width: 50, height: 50)
@@ -132,11 +135,12 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     func handlePageAppear(withImageAnchor bookImageAnchor: ARImageAnchor) {
         
         let bookImageName = bookImageAnchor.referenceImage.name!
-        
-        DispatchQueue.main.async {
+
+        DispatchQueue.main.sync {
             self.pageArray = self.pageArray?.filter("title LIKE[c] %@", bookImageName)
             print("DEBUG: page is: \(self.pageArray![0].title)")
             self.selectedPage = self.pageArray?[0]
+            self.noteText = self.selectedPage?.note
         }
         
         DispatchQueue.main.async {
@@ -156,6 +160,8 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
             
             //fetch pages again as currently  it has filtered pages.
             self.pageArray = self.realm.objects(Page.self)
+            
+            self.noteText = nil
         }
         
         if let configuration = sceneView.session.configuration {
@@ -183,36 +189,39 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     //MARK: - ARRendering
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        
-        guard let bookImageAnchor = anchor as? ARImageAnchor else { return }
-        
-        handlePageAppear(withImageAnchor: bookImageAnchor)
-        
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
 
-        let text = SCNText(string: "testtext", extrusionDepth: 1)
         let material = SCNMaterial()
-
+        
         material.diffuse.contents = UIColor.black
+        
+        let text = SCNText(string: noteText, extrusionDepth: 1)
         text.materials = [material]
-
+        
         let textNode = SCNNode(geometry: text)
         
         //moove text relative to current position.
-        textNode.scale = SCNVector3(x: 0.3, y: 0.3, z: 0.3)
+        textNode.scale = SCNVector3(x: 0.2, y: 0.2, z: 0.2)
         
         let x = textNode.position.x
         let y = textNode.position.y
         let z = textNode.position.z
         
         textNode.position = SCNVector3(x-10, y, z-15)
-
+        
         node.addChildNode(textNode)
 
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+        
+        guard let bookImageAnchor = anchor as? ARImageAnchor else { return nil }
+        
+        handlePageAppear(withImageAnchor: bookImageAnchor)
+        
+        let node = SCNNode()
+        
         return node
+        
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
@@ -221,6 +230,7 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
             handlePageDissapear()
         }
     }
+
     
  
 }

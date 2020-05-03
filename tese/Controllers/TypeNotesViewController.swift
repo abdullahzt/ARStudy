@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TypeNotesViewController: UIViewController, UITextViewDelegate {
     
     //MARK: - Properties
+    
+    let realm = try! Realm()
     
     private let notesTextView = CaptionTextView()
     
@@ -30,6 +33,21 @@ class TypeNotesViewController: UIViewController, UITextViewDelegate {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        notesTextView.text = selectedPage.note
+        
+        if selectedPage.note.count > 0 {
+            notesTextView.placeholderLabel.text = ""
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        //Every time view dissapears, data on realm is saved.
+        try! realm.write {
+            selectedPage.note = notesTextView.text
+        }
     }
     
     init(page: Page) {
@@ -59,14 +77,9 @@ class TypeNotesViewController: UIViewController, UITextViewDelegate {
         
         notesTextView.isScrollEnabled = true
         view.addSubview(notesTextView)
-        notesTextView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
-                             left: view.leftAnchor,
-                             bottom: view.safeAreaLayoutGuide.bottomAnchor,
-                             right: view.rightAnchor,
-                             paddingTop: 12,
-                             paddingLeft: 12,
-                             paddingBottom: 12,
-                             paddingRight: 12)
+        notesTextView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor,
+                             bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor,
+                             paddingTop: 12, paddingLeft: 12, paddingBottom: 12, paddingRight: 12)
     }
     
     func configureNavigationBar() {
@@ -78,6 +91,10 @@ class TypeNotesViewController: UIViewController, UITextViewDelegate {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
         navigationItem.leftBarButtonItem?.tintColor = .white
         
+    }
+    
+    func loadText() {
+        notesTextView.text = selectedPage.note
     }
     
     //MARK: - AdjustKeyboardHeight
