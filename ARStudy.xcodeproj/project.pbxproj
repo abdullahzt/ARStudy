@@ -24,6 +24,7 @@
 		1897CCB22451A6D6006D6B88 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CCB12451A6D6006D6B88 /* NotesViewController.swift */; };
 		18A0725C245E0F79000AA8A0 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0725B245E0F79000AA8A0 /* Page.swift */; };
 		18C89C02245FF56500272DD7 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C89C01245FF56500272DD7 /* BookCell.swift */; };
+		18C89C04245FF94C00272DD7 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C89C03245FF94C00272DD7 /* Book.swift */; };
 		E69925C080971C48207AF723 /* Pods_ARStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C729CE6165E200E7CE11D2 /* Pods_ARStudy.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		1897CCB12451A6D6006D6B88 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		18A0725B245E0F79000AA8A0 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		18C89C01245FF56500272DD7 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		18C89C03245FF94C00272DD7 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		59C729CE6165E200E7CE11D2 /* Pods_ARStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70873A0A38B23CFE938A43BF /* Pods-ARStudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARStudy.debug.xcconfig"; path = "Target Support Files/Pods-ARStudy/Pods-ARStudy.debug.xcconfig"; sourceTree = "<group>"; };
 		70FE74E10E928CA0731F54AC /* Pods-ARStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARStudy.release.xcconfig"; path = "Target Support Files/Pods-ARStudy/Pods-ARStudy.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				1844A312245768A10001588A /* Assets.xcassets */,
+				18C89C0524601B1200272DD7 /* BookData */,
 				1897CCA224519E1E006D6B88 /* kingdombacteria.mp4 */,
 				1897CCA324519E1E006D6B88 /* influenza.mp4 */,
 				1897CC8A24519B85006D6B88 /* AppDelegate.swift */,
@@ -135,8 +138,16 @@
 			isa = PBXGroup;
 			children = (
 				18A0725B245E0F79000AA8A0 /* Page.swift */,
+				18C89C03245FF94C00272DD7 /* Book.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		18C89C0524601B1200272DD7 /* BookData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BookData;
 			sourceTree = "<group>";
 		};
 		6FB10EB7E6148B0ED49E8BE7 /* Frameworks */ = {
@@ -284,6 +295,7 @@
 				187E0AF1245A0A5300A6472A /* CaptionTextView.swift in Sources */,
 				1843FD9E24545BA2009EC184 /* ModelViewController.swift in Sources */,
 				18420DE1245F591A0034B4EF /* MainScreenController.swift in Sources */,
+				18C89C04245FF94C00272DD7 /* Book.swift in Sources */,
 				1897CC8D24519B85006D6B88 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

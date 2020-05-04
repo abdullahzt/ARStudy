@@ -44,8 +44,6 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureDatabase()
-        
         pageArray = realm.objects(Page.self)
         
         configureUI()
@@ -95,40 +93,6 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         view.addSubview(addNotesButton)
         addNotesButton.anchor(bottom: view.bottomAnchor, right: view.rightAnchor, paddingBottom: 70, paddingRight: 20)
         addNotesButton.disable()
-        
-    }
-    
-    func configureDatabase() {
-        //If app has launched for the first time add pages to database.
-        //else pages are already present in database.
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        if (!appDelegate.hasAlreadyLaunched) {
-           //first time launch.
-            print("DEBUG: first time launch.")
-            
-            let page10 = Page()
-            page10.title = "page-10"
-            
-            self.save(page: page10)
-            
-            let page11 = Page()
-            page11.title = "page-11"
-            
-            self.save(page: page11)
-        }
-    }
-    
-    func save(page: Page) {
-        
-        do {
-            try realm.write {
-                realm.add(page)
-            }
-        } catch {
-            print("Error saving context:  \(error)")
-        }
         
     }
     

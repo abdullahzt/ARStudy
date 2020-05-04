@@ -17,6 +17,7 @@ class MainTabBarController: UITabBarController {
         button.setImage(UIImage(systemName: "arrow.left"), for: .normal)
         button.tintColor = .white
         button.setDimensions(width: 50, height: 50)
+        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -25,6 +26,19 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     //MARK: - Helpers
@@ -50,6 +64,12 @@ class MainTabBarController: UITabBarController {
         modelViewController.tabBarItem.image = UIImage(systemName: "square.stack.3d.up.fill")
         
         viewControllers = [liveVideoController, modelViewController, notesViewcontroller]
+    }
+    
+    //MARK: - Handlers
+    
+    @objc func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
     
 }

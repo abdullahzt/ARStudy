@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "BookCell"
 
@@ -14,18 +15,24 @@ class MainScreenController: UICollectionViewController {
     
     //MARK: - Properties
     
+    let realm = try! Realm()
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
+        configureDatabase()
     }
     
     //MARK: - Helpers
     
     func configureUI() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        //        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         view.backgroundColor = .white
         self.title = "Books"
@@ -34,6 +41,52 @@ class MainScreenController: UICollectionViewController {
         collectionView.backgroundColor = .white
         
     }
+    
+    func configureDatabase() {
+        //If app has launched for the first time add pages to database.
+        //else pages are already present in database.
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        if (!appDelegate.hasAlreadyLaunched) {
+            //first time launch.
+            print("DEBUG: first time launch.")
+            
+            let book = Book()
+            book.title = "IGCSE Biology"
+            book.IBAN = "978-0-521-14779-8"
+            self.save(book: book)
+            
+            let page10 = Page()
+            page10.title = "page-10"
+            
+            let page11 = Page()
+            page11.title = "page-11"
+            
+            do {
+                try realm.write {
+                    book.pages.append(page10)
+                    book.pages.append(page11)
+                }
+            } catch {
+                print("Error saving context:  \(error)")
+            }
+            
+        }
+    }
+    
+    func save(book: Book) {
+        
+        do {
+            try realm.write {
+                realm.add(book)
+            }
+        } catch {
+            print("Error saving context:  \(error)")
+        }
+        
+    }
+    
     
 }
 
@@ -51,7 +104,10 @@ extension MainScreenController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        
+        let controller = MainTabBarController()
+        navigationController?.pushViewController(controller, animated: true)
+        
     }
     
 }
@@ -69,7 +125,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout {
         let leftInset = CGFloat(10)
         let rightInset = leftInset
 
-        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+        return UIEdgeInsets(top: 10, left: leftInset, bottom: 0, right: rightInset)
 
     }
 }
