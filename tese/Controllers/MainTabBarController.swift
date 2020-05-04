@@ -12,6 +12,13 @@ class MainTabBarController: UITabBarController {
     
     //MARK: - Properties
     
+    private lazy var backButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+        button.tintColor = .white
+        button.setDimensions(width: 50, height: 50)
+        return button
+    }()
     
     //MARK: - LifeCycle
     
@@ -26,6 +33,9 @@ class MainTabBarController: UITabBarController {
         
         self.tabBar.barStyle = .black
         self.tabBar.tintColor = UIColor(red: 215/255, green: 56/255, blue: 94/255, alpha: 1)
+        
+        view.addSubview(backButton)
+        backButton.anchor(top: view.topAnchor, left: view.leftAnchor, paddingTop: 20, paddingLeft: 15)
         
         let liveVideoController = LiveVideoViewController()
         liveVideoController.tabBarItem.title = "Video"

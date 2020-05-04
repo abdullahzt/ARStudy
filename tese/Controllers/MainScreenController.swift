@@ -10,4 +10,15 @@ import UIKit
 
 class MainScreenController: UIViewController {
     
+    //MARK: - Properties
+    
+    //MARK: - LifeCycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    //MARK: - Helpers
+    
+    
 }
