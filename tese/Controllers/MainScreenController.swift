@@ -19,6 +19,18 @@ class MainScreenController: UICollectionViewController {
     
     var bookArray: Results<Book>?
     
+    private lazy var addBooksButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setDimensions(width: 55, height: 55)
+        button.layer.cornerRadius = 27.5
+        button.backgroundColor = APP_RED
+        let image = UIImage(systemName: "plus")
+        button.setImage(image, for: .normal)
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(addBooksTapped), for: .touchUpInside)
+        return button
+    }()
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -34,7 +46,7 @@ class MainScreenController: UICollectionViewController {
     
     func configureUI() {
         
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: APP_RED]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         view.backgroundColor = .white
@@ -42,6 +54,9 @@ class MainScreenController: UICollectionViewController {
         
         collectionView.register(BookCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.backgroundColor = .white
+        
+        view.addSubview(addBooksButton)
+        addBooksButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 20, paddingRight: 20)
         
     }
     
@@ -90,6 +105,11 @@ class MainScreenController: UICollectionViewController {
         
     }
     
+    //MARK: - Handlers
+    
+    @objc func addBooksTapped() {
+        
+    }
     
 }
 

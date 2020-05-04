@@ -37,12 +37,6 @@ class MainTabBarController: UITabBarController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
     init(book: Book) {
         selectedBook = book
         super.init(nibName: nil, bundle: nil)
@@ -80,7 +74,10 @@ class MainTabBarController: UITabBarController {
     //MARK: - Handlers
     
     @objc func backButtonTapped() {
+        
         navigationController?.popViewController(animated: true)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
 }
