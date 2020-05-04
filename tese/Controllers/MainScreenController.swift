@@ -17,10 +17,14 @@ class MainScreenController: UICollectionViewController {
     
     let realm = try! Realm()
     
+    var bookArray: Results<Book>?
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bookArray = realm.objects(Book.self).sorted(byKeyPath: "title", ascending: true)
         
         configureUI()
         configureDatabase()
@@ -29,7 +33,6 @@ class MainScreenController: UICollectionViewController {
     //MARK: - Helpers
     
     func configureUI() {
-        //        navigationController?.navigationBar.prefersLargeTitles = true
         
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
@@ -94,18 +97,22 @@ class MainScreenController: UICollectionViewController {
 
 extension MainScreenController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return bookArray?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BookCell
+        
+        cell.book = bookArray?[indexPath.row]
         
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let controller = MainTabBarController()
+        guard let book = bookArray?[indexPath.row] else { return }
+        
+        let controller = MainTabBarController(book: book)
         navigationController?.pushViewController(controller, animated: true)
         
     }

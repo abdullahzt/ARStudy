@@ -12,6 +12,8 @@ class MainTabBarController: UITabBarController {
     
     //MARK: - Properties
     
+    private var selectedBook: Book
+    
     private lazy var backButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "arrow.left"), for: .normal)
@@ -41,6 +43,15 @@ class MainTabBarController: UITabBarController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    init(book: Book) {
+        selectedBook = book
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: - Helpers
     
     func configureUI() {
@@ -51,15 +62,15 @@ class MainTabBarController: UITabBarController {
         view.addSubview(backButton)
         backButton.anchor(top: view.topAnchor, left: view.leftAnchor, paddingTop: 20, paddingLeft: 15)
         
-        let liveVideoController = LiveVideoViewController()
+        let liveVideoController = LiveVideoViewController(book: selectedBook, iban: selectedBook.IBAN)
         liveVideoController.tabBarItem.title = "Video"
         liveVideoController.tabBarItem.image = UIImage(systemName: "video.fill")
         
-        let notesViewcontroller = NotesViewController()
+        let notesViewcontroller = NotesViewController(book: selectedBook)
         notesViewcontroller.tabBarItem.title = "Notes"
         notesViewcontroller.tabBarItem.image = UIImage(systemName: "book.fill")
         
-        let modelViewController = ModelViewController()
+        let modelViewController = ModelViewController(book: selectedBook)
         modelViewController.tabBarItem.title = "Models"
         modelViewController.tabBarItem.image = UIImage(systemName: "square.stack.3d.up.fill")
         

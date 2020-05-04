@@ -21,6 +21,8 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     
     private var selectedPage: Page?
     
+    private let selectedBook: Book
+    
     private let sceneView = ARSCNView()
     
     var noteText: String?
@@ -67,7 +69,9 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         let configuration = ARImageTrackingConfiguration()
         
-        if let bookImagesToTrack = ARReferenceImage.referenceImages(inGroupNamed: "BookPages", bundle: Bundle.main) {
+        let iban = selectedBook.IBAN
+        
+        if let bookImagesToTrack = ARReferenceImage.referenceImages(inGroupNamed: "\(iban)-Pages", bundle: Bundle.main) {
             configuration.trackingImages = bookImagesToTrack
             
             configuration.maximumNumberOfTrackedImages = 1
@@ -82,6 +86,17 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         
         // Pause the view's session
         sceneView.session.pause()
+    }
+    
+    //MARK: - init
+    
+    init(book: Book) {
+        selectedBook = book
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     //MARK: - Helpers

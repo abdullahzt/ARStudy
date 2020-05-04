@@ -16,6 +16,8 @@ class ModelViewController: UIViewController, ARSCNViewDelegate {
     
     private let sceneView = ARSCNView()
     
+    private let selectedBook: Book
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -39,7 +41,9 @@ class ModelViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         
-        if let imagesToTrack = ARReferenceImage.referenceImages(inGroupNamed: "BookModelImages", bundle: Bundle.main) {
+        let iban = selectedBook.IBAN
+        
+        if let imagesToTrack = ARReferenceImage.referenceImages(inGroupNamed: "\(iban)-ModelImages", bundle: Bundle.main) {
             
             configuration.detectionImages = imagesToTrack
             
@@ -57,6 +61,17 @@ class ModelViewController: UIViewController, ARSCNViewDelegate {
         
         // Pause the view's session
         sceneView.session.pause()
+    }
+    
+    //MARK: - init
+    
+    init(book: Book) {
+        selectedBook = book
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     //MARK: - Helpers

@@ -16,6 +16,10 @@ class LiveVideoViewController: UIViewController, ARSCNViewDelegate {
     
     private let sceneView = ARSCNView()
     
+    private let selectedBook: Book
+    
+    private let iban: String
+    
     
     //MARK: - LifeCycle
     
@@ -42,7 +46,9 @@ class LiveVideoViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         let configuration = ARImageTrackingConfiguration()
         
-        if let bookImagesToTrack = ARReferenceImage.referenceImages(inGroupNamed: "BookImages", bundle: Bundle.main) {
+        let iban = selectedBook.IBAN
+        
+        if let bookImagesToTrack = ARReferenceImage.referenceImages(inGroupNamed: "\(iban)-Images", bundle: Bundle.main) {
             configuration.trackingImages = bookImagesToTrack
             
             configuration.maximumNumberOfTrackedImages = 2
@@ -57,6 +63,18 @@ class LiveVideoViewController: UIViewController, ARSCNViewDelegate {
         
         // Pause the view's session
         sceneView.session.pause()
+    }
+    
+    //MARK: - init
+    
+    init(book: Book, iban: String) {
+        selectedBook = book
+        self.iban = iban
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     //MARK: - Helpers
@@ -89,7 +107,7 @@ class LiveVideoViewController: UIViewController, ARSCNViewDelegate {
         
         //3. If We Have A Valid Name & A Valid Video URL The Instanciate The AVPlayer
         if let targetName = target.name,
-            let validURL = Bundle.main.url(forResource: targetName, withExtension: "mp4") {
+            let validURL = Bundle.main.url(forResource: targetName, withExtension: "mp4", subdirectory: "BookData/\(iban)") {
             videoPlayer = AVPlayer(url: validURL)
             videoPlayer.play()
         }

@@ -12,9 +12,17 @@ class BookCell: UICollectionViewCell {
     
     //MARK: - Properties
     
+    var book: Book? {
+        didSet {
+            configure()
+        }
+    }
+    
     private let bookImageView: UIImageView = {
         let iv = UIImageView()
         iv.setDimensions(width: 53, height: 80)
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
         iv.backgroundColor = .black
         return iv
     }()
@@ -22,14 +30,12 @@ class BookCell: UICollectionViewCell {
     private let bookTitle: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 22)
-        label.text = "IGCSE Biology"
         return label
     }()
     
     private let bookIban: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "0038484733773822"
         return label
     }()
     
@@ -55,6 +61,17 @@ class BookCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Helpers
+    
+    func configure() {
+        bookTitle.text = book?.title
+        bookIban.text = book?.IBAN
+        
+        guard let iban = book?.IBAN else { return }
+        
+        bookImageView.image = UIImage(named: iban)
     }
     
 }
