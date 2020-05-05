@@ -6,5 +6,6 @@ target 'ARStudy' do
   use_frameworks!
 
   pod 'RealmSwift'
+  pod 'Motion', '~> 3.1.0'
 
 end

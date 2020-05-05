@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Motion
 
 private let reuseIdentifier = "BookCell"
 
@@ -35,6 +36,8 @@ class MainScreenController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        isMotionEnabled = true
         
         bookArray = realm.objects(Book.self).sorted(byKeyPath: "title", ascending: true)
         
@@ -133,7 +136,8 @@ extension MainScreenController {
         guard let book = bookArray?[indexPath.row] else { return }
         
         let controller = MainTabBarController(book: book)
-        navigationController?.pushViewController(controller, animated: true)
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true, completion: nil)
         
     }
     

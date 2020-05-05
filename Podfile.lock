@@ -1,4 +1,7 @@
 PODS:
+  - Motion (3.1.3):
+    - Motion/Core (= 3.1.3)
+  - Motion/Core (3.1.3)
   - Realm (4.3.1):
     - Realm/Headers (= 4.3.1)
   - Realm/Headers (4.3.1)
@@ -6,17 +9,20 @@ PODS:
     - Realm (= 4.3.1)
 
 DEPENDENCIES:
+  - Motion (~> 3.1.0)
   - RealmSwift
 
 SPEC REPOS:
   trunk:
+    - Motion
     - Realm
     - RealmSwift
 
 SPEC CHECKSUMS:
+  Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
   Realm: 31dc40934081ef740f60feedc46d88473cbfeb40
   RealmSwift: b5199e9a41f67b99f51acf6874a6166f5fbe93d1
 
-PODFILE CHECKSUM: b362d42b889a09e26bb634ab9f365cb2547a4f97
+PODFILE CHECKSUM: c460d198905254111e5d8db5bbd9550d3ee364d9
 
 COCOAPODS: 1.8.4

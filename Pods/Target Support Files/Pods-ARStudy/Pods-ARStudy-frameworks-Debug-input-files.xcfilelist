@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-ARStudy/Pods-ARStudy-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Motion/Motion.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework

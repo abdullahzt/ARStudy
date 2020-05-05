@@ -26,6 +26,10 @@ class MainTabBarController: UITabBarController {
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
+        
+        isMotionEnabled = true
+        motionTransitionType = .autoReverse(presenting: .slide(direction: .left))
+        
         super.viewDidLoad()
         configureUI()
         
@@ -34,7 +38,6 @@ class MainTabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     init(book: Book) {
@@ -74,10 +77,7 @@ class MainTabBarController: UITabBarController {
     //MARK: - Handlers
     
     @objc func backButtonTapped() {
-        
-        navigationController?.popViewController(animated: true)
-        
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
