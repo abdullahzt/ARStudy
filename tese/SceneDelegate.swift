@@ -18,9 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        let nav = UINavigationController(rootViewController: MainScreenController(collectionViewLayout: UICollectionViewFlowLayout()))
-        
-        window?.rootViewController = nav
+        window?.rootViewController = ContainerController()
         
         window?.makeKeyAndVisible()
         

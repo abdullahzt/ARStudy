@@ -43,6 +43,9 @@ class MainScreenController: UICollectionViewController {
         
         configureUI()
         configureDatabase()
+        
+        configureNavigationButton()
+        
     }
     
     //MARK: - Helpers
@@ -108,9 +111,20 @@ class MainScreenController: UICollectionViewController {
         
     }
     
+    func configureNavigationButton() {
+        let image = UIImage(systemName: "line.horizontal.3")
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(menuButtonTapped))
+        navigationItem.leftBarButtonItem?.tintColor = APP_RED
+    }
+    
     //MARK: - Handlers
     
     @objc func addBooksTapped() {
+        
+    }
+    
+    @objc func menuButtonTapped() {
         
     }
     
