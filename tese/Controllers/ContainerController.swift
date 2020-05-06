@@ -21,8 +21,9 @@ class ContainerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureHomeController()
+        
+        view.backgroundColor = UIColor(white: 1, alpha: 0.7)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -34,7 +35,7 @@ class ContainerController: UIViewController {
     func configureHomeController() {
         let mainScreenController = MainScreenController(collectionViewLayout: UICollectionViewFlowLayout())
         mainScreenController.delegate = self
-        centerController = UINavigationController(rootViewController: mainScreenController)
+        centerController = mainScreenController
         
         view.addSubview(centerController.view)
         addChild(centerController)

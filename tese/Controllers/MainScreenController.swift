@@ -24,6 +24,8 @@ class MainScreenController: UICollectionViewController {
     
     var bookArray: Results<Book>?
     
+    var isExpanded = false
+    
     var delegate: HomeControllerDelegate?
     
     private lazy var addBooksButton: UIButton = {
@@ -36,6 +38,17 @@ class MainScreenController: UICollectionViewController {
         button.tintColor = .white
         button.addTarget(self, action: #selector(addBooksTapped), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var blackView: UIView = {
+        let view = UIView()
+        view.alpha = 0
+        view.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleMenuDismissal))
+        view.addGestureRecognizer(tap)
+        
+        return view
     }()
     
     //MARK: - LifeCycle
@@ -118,10 +131,23 @@ class MainScreenController: UICollectionViewController {
     }
     
     func configureNavigationButton() {
-        let image = UIImage(systemName: "line.horizontal.3")
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(menuButtonTapped))
-        navigationItem.leftBarButtonItem?.tintColor = APP_RED
+        let menuButton = UIButton(type: .custom)
+        menuButton.setImage(#imageLiteral(resourceName: "multimedia-2").withTintColor(APP_RED), for: .normal)
+        menuButton.addTarget(self, action: #selector(menuButtonTapped), for: .touchUpInside)
+        
+        let title = UILabel()
+        title.text = "Books"
+        title.textAlignment = .center
+        title.font = UIFont.boldSystemFont(ofSize: 18)
+        title.textColor = APP_RED
+        
+        view.addSubview(title)
+        title.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 23)
+
+        view.addSubview(menuButton)
+        menuButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, paddingTop: 20, paddingLeft: 20, width: 25, height: 25)
+
     }
     
     //MARK: - Handlers
@@ -131,7 +157,31 @@ class MainScreenController: UICollectionViewController {
     }
     
     @objc func menuButtonTapped() {
+        
+        view.addSubview(blackView)
+        blackView.frame = view.frame
+
+        UIView.animate(withDuration: 0.3) {
+            let value = self.isExpanded ? 0 : 1
+            self.blackView.alpha = CGFloat(value)
+        }
+
+        isExpanded = !isExpanded
+        
         delegate?.menuButtonTapped()
+    }
+    
+    @objc func handleMenuDismissal() {
+        
+        UIView.animate(withDuration: 0.3) {
+            let value = self.isExpanded ? 0 : 1
+            self.blackView.alpha = CGFloat(value)
+        }
+        
+        isExpanded = !isExpanded
+        
+        delegate?.menuButtonTapped()
+        
     }
     
 }
@@ -176,7 +226,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout {
         let leftInset = CGFloat(10)
         let rightInset = leftInset
 
-        return UIEdgeInsets(top: 10, left: leftInset, bottom: 0, right: rightInset)
+        return UIEdgeInsets(top: 65, left: leftInset, bottom: 0, right: rightInset)
 
     }
 }
