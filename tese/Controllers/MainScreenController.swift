@@ -12,6 +12,10 @@ import Motion
 
 private let reuseIdentifier = "BookCell"
 
+protocol HomeControllerDelegate {
+    func menuButtonTapped()
+}
+
 class MainScreenController: UICollectionViewController {
     
     //MARK: - Properties
@@ -19,6 +23,8 @@ class MainScreenController: UICollectionViewController {
     let realm = try! Realm()
     
     var bookArray: Results<Book>?
+    
+    var delegate: HomeControllerDelegate?
     
     private lazy var addBooksButton: UIButton = {
         let button = UIButton(type: .system)
@@ -125,7 +131,7 @@ class MainScreenController: UICollectionViewController {
     }
     
     @objc func menuButtonTapped() {
-        
+        delegate?.menuButtonTapped()
     }
     
 }

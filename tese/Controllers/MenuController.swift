@@ -12,6 +12,8 @@ class MenuController: UIViewController {
     
     //MARK: - Properties
     
+    var tableView: UITableView!
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -19,5 +21,8 @@ class MenuController: UIViewController {
     }
     
     //MARK: - Helpers
+    func configureTableView() {
+        
+    }
     
 }
