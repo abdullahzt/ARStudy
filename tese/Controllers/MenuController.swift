@@ -16,6 +16,24 @@ class MenuController: UIViewController {
     
     var tableView: UITableView!
     
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        let font = UIFont(name: "BetmRounded-SemiBold", size: 30)
+        label.font = font
+        label.text = "ARStudy"
+        label.textColor = APP_RED
+        return label
+    }()
+    
+    private lazy var crossButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "cross"), for: .normal)
+        button.setDimensions(width: 20, height: 20)
+        button.addTarget(self, action: #selector(crossButtonTapped), for: .touchUpInside)
+        button.tintColor = APP_RED
+        return button
+    }()
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -24,6 +42,8 @@ class MenuController: UIViewController {
         let newFrame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width - 80, height: self.view.frame.height)
 
         self.view.frame = newFrame
+        
+        configureUI()
         
         //only set rounded corner for right side
         view.clipsToBounds = true
@@ -40,6 +60,22 @@ class MenuController: UIViewController {
         tableView.dataSource = self
         
         tableView.register(MenuOptionCell.self, forCellReuseIdentifier: reuseIdentifier)
+    }
+    
+    func configureUI() {
+        
+        view.addSubview(titleLabel)
+        titleLabel.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 20)
+        
+        view.addSubview(crossButton)
+        crossButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, paddingTop: 22, paddingLeft: 20)
+        
+    }
+    
+    //MARK: - Handlers
+    
+    @objc func crossButtonTapped() {
+        
     }
     
 }

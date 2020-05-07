@@ -139,7 +139,8 @@ class MainScreenController: UICollectionViewController {
         let title = UILabel()
         title.text = "Books"
         title.textAlignment = .center
-        title.font = UIFont.boldSystemFont(ofSize: 18)
+        let font = UIFont(name: "BetmRounded-SemiBold", size: 24)
+        title.font = font
         title.textColor = APP_RED
         
         view.addSubview(title)

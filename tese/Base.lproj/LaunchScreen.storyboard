@@ -18,16 +18,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nse-AD-nNj">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARStudy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgf-qE-aoE">
-                                        <rect key="frame" x="149.5" y="458.5" width="115" height="39.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="39.5" id="63U-H3-cUc"/>
-                                            <constraint firstAttribute="width" constant="115" id="UUh-ae-P3C"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="KohinoorDevanagari-Regular" family="Kohinoor Devanagari" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ARStudy" translatesAutoresizingMaskIntoConstraints="NO" id="uJ9-gO-1IU">
                                         <rect key="frame" x="157" y="338" width="100" height="100"/>
                                         <constraints>
@@ -35,12 +25,15 @@
                                             <constraint firstAttribute="width" constant="100" id="Eul-Y5-NdT"/>
                                         </constraints>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchtext" translatesAutoresizingMaskIntoConstraints="NO" id="WCk-6I-dYj">
+                                        <rect key="frame" x="162" y="453.5" width="90" height="29"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="WCk-6I-dYj" firstAttribute="centerX" secondItem="Nse-AD-nNj" secondAttribute="centerX" id="0c9-ZW-jKe"/>
                                     <constraint firstItem="uJ9-gO-1IU" firstAttribute="centerX" secondItem="Nse-AD-nNj" secondAttribute="centerX" id="8nJ-gZ-ceb"/>
-                                    <constraint firstItem="xgf-qE-aoE" firstAttribute="centerY" secondItem="Nse-AD-nNj" secondAttribute="centerY" constant="30" id="AbV-5u-cj6"/>
-                                    <constraint firstItem="xgf-qE-aoE" firstAttribute="centerX" secondItem="Nse-AD-nNj" secondAttribute="centerX" id="WW4-5R-SMw"/>
+                                    <constraint firstItem="WCk-6I-dYj" firstAttribute="centerY" secondItem="Nse-AD-nNj" secondAttribute="centerY" constant="20" id="Nxw-nm-ahk"/>
                                     <constraint firstItem="uJ9-gO-1IU" firstAttribute="centerY" secondItem="Nse-AD-nNj" secondAttribute="centerY" constant="-60" id="rrB-uA-z3o"/>
                                 </constraints>
                             </view>
@@ -62,5 +55,6 @@
     </scenes>
     <resources>
         <image name="ARStudy" width="1024" height="1024"/>
+        <image name="launchtext" width="90" height="29"/>
     </resources>
 </document>

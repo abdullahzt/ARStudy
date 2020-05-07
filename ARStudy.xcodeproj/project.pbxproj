@@ -12,6 +12,8 @@
 		1844A313245768A10001588A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1844A312245768A10001588A /* Assets.xcassets */; };
 		187E0AEE2459FE9D00A6472A /* TypeNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E0AED2459FE9D00A6472A /* TypeNotesViewController.swift */; };
 		187E0AF1245A0A5300A6472A /* CaptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E0AF0245A0A5300A6472A /* CaptionTextView.swift */; };
+		188811B52463EF9800679C68 /* betmrounded.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188811B42463EF9800679C68 /* betmrounded.ttf */; };
+		188811B72463F0D900679C68 /* betmrounded-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188811B62463F0D900679C68 /* betmrounded-semibold.ttf */; };
 		188B1CF724621462007B7672 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B1CF624621462007B7672 /* ContainerController.swift */; };
 		188B1CF92462146E007B7672 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B1CF82462146E007B7672 /* MenuController.swift */; };
 		1897CC8B24519B85006D6B88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CC8A24519B85006D6B88 /* AppDelegate.swift */; };
@@ -37,6 +39,8 @@
 		1844A312245768A10001588A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		187E0AED2459FE9D00A6472A /* TypeNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeNotesViewController.swift; sourceTree = "<group>"; };
 		187E0AF0245A0A5300A6472A /* CaptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionTextView.swift; sourceTree = "<group>"; };
+		188811B42463EF9800679C68 /* betmrounded.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = betmrounded.ttf; sourceTree = "<group>"; };
+		188811B62463F0D900679C68 /* betmrounded-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "betmrounded-semibold.ttf"; sourceTree = "<group>"; };
 		188B1CF624621462007B7672 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 		188B1CF82462146E007B7672 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		1897CC8724519B85006D6B88 /* ARStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +95,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		188811B12463E9A200679C68 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				188811B42463EF9800679C68 /* betmrounded.ttf */,
+				188811B62463F0D900679C68 /* betmrounded-semibold.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		1897CC7E24519B85006D6B88 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +131,7 @@
 				1897CC8C24519B85006D6B88 /* SceneDelegate.swift */,
 				1897CC9524519B8B006D6B88 /* LaunchScreen.storyboard */,
 				1897CC9824519B8B006D6B88 /* Info.plist */,
+				188811B12463E9A200679C68 /* fonts */,
 				18A0725A245E0D6A000AA8A0 /* Model */,
 				187E0AEF245A0A3A00A6472A /* Views */,
 				1897CCB02451A3D5006D6B88 /* Controllers */,
@@ -228,8 +242,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188811B72463F0D900679C68 /* betmrounded-semibold.ttf in Resources */,
 				18A24E9A24609E4100278798 /* BookData in Resources */,
 				1897CC9724519B8B006D6B88 /* LaunchScreen.storyboard in Resources */,
+				188811B52463EF9800679C68 /* betmrounded.ttf in Resources */,
 				1897CCAD2451A05E006D6B88 /* art.scnassets in Resources */,
 				1844A313245768A10001588A /* Assets.xcassets in Resources */,
 			);

@@ -49,7 +49,6 @@ class ContainerController: UIViewController {
             view.insertSubview(menuController.view, at: 0)
             addChild(menuController)
             menuController.didMove(toParent: self)
-            print("did add mc")
         }
     }
     
