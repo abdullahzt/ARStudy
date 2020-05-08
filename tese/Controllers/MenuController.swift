@@ -34,6 +34,8 @@ class MenuController: UIViewController {
         return button
     }()
     
+    var delegate: HomeControllerDelegate?
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -83,7 +85,7 @@ class MenuController: UIViewController {
     //MARK: - Handlers
     
     @objc func crossButtonTapped() {
-        print("Cross Button Tapped")
+        delegate?.handleMenuToggle(menuOption: nil)
     }
     
     @objc func profileHeaderViewTapped(_ view: UIView) {
@@ -119,8 +121,7 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! MenuOptionCell
-        
+        delegate?.handleMenuToggle(menuOption: MenuOption(rawValue: indexPath.row))
     }
     
 }

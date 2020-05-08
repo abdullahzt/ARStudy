@@ -13,7 +13,7 @@ import Motion
 private let reuseIdentifier = "BookCell"
 
 protocol HomeControllerDelegate {
-    func menuButtonTapped()
+    func handleMenuToggle(menuOption: MenuOption?)
 }
 
 class MainScreenController: UICollectionViewController {
@@ -134,7 +134,7 @@ class MainScreenController: UICollectionViewController {
         
         let menuButton = UIButton(type: .custom)
         menuButton.setImage(#imageLiteral(resourceName: "multimedia-2").withTintColor(APP_RED), for: .normal)
-        menuButton.addTarget(self, action: #selector(menuButtonTapped), for: .touchUpInside)
+        menuButton.addTarget(self, action: #selector(handleMenuToggle), for: .touchUpInside)
         
         let title = UILabel()
         title.text = "Books"
@@ -157,7 +157,7 @@ class MainScreenController: UICollectionViewController {
         
     }
     
-    @objc func menuButtonTapped() {
+    @objc func handleMenuToggle() {
         
         view.addSubview(blackView)
         blackView.frame = view.frame
@@ -169,20 +169,23 @@ class MainScreenController: UICollectionViewController {
 
         isExpanded = !isExpanded
         
-        delegate?.menuButtonTapped()
+        delegate?.handleMenuToggle(menuOption: nil)
     }
     
     @objc func handleMenuDismissal() {
         
-        UIView.animate(withDuration: 0.3) {
-            let value = self.isExpanded ? 0 : 1
-            self.blackView.alpha = CGFloat(value)
-        }
-        
         isExpanded = !isExpanded
         
-        delegate?.menuButtonTapped()
+        delegate?.handleMenuToggle(menuOption: nil)
         
+    }
+    
+    func removeBlackView() {
+        isExpanded = false
+        UIView.animate(withDuration: 0.3) {
+            let value = 0
+            self.blackView.alpha = CGFloat(value)
+        }
     }
     
 }

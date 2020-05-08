@@ -42,13 +42,15 @@ class MenuOptionCell: UITableViewCell {
     
     //MARK: - TouchAction
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         UIView.animate(withDuration: 0.2) {
             self.iconImageView.alpha = 0.25
             self.descriptionLabel.alpha = 0.25
         }
     }
-    
+
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         UIView.animate(withDuration: 0.25) {
             self.iconImageView.alpha = 1
             self.descriptionLabel.alpha = 1
