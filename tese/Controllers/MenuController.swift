@@ -44,6 +44,7 @@ class MenuController: UIViewController {
         self.view.frame = newFrame
         
         configureUI()
+        configureTableView()
         
         //only set rounded corner for right side
         view.clipsToBounds = true
@@ -60,6 +61,9 @@ class MenuController: UIViewController {
         tableView.dataSource = self
         
         tableView.register(MenuOptionCell.self, forCellReuseIdentifier: reuseIdentifier)
+        
+        view.addSubview(tableView)
+        tableView.anchor(top: titleLabel.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 20)
     }
     
     func configureUI() {
@@ -75,7 +79,7 @@ class MenuController: UIViewController {
     //MARK: - Handlers
     
     @objc func crossButtonTapped() {
-        
+        print("Cross Button Tapped")
     }
     
 }
@@ -89,6 +93,15 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MenuOptionCell
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = MenuHeaderView()
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 130
     }
     
 }
