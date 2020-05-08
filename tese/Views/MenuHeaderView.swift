@@ -65,4 +65,21 @@ class MenuHeaderView: UIView {
         stack.anchor(top: topAnchor, left: profileImageView.rightAnchor, paddingTop: 40, paddingLeft: 10)
     }
     
+    //MARK: - TouchAction
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIView.animate(withDuration: 0.2) {
+            self.nameLabel.alpha = 0.25
+            self.emailLabel.alpha = 0.25
+            self.profileImageView.alpha = 0.25
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIView.animate(withDuration: 0.25) {
+            self.nameLabel.alpha = 1
+            self.emailLabel.alpha = 1
+            self.profileImageView.alpha = 1
+        }
+    }
+    
 }

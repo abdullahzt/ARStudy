@@ -60,6 +60,10 @@ class MenuController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.isScrollEnabled = false
+        tableView.rowHeight = 70
+        tableView.separatorStyle = .none
+        
         tableView.register(MenuOptionCell.self, forCellReuseIdentifier: reuseIdentifier)
         
         view.addSubview(tableView)
@@ -82,26 +86,41 @@ class MenuController: UIViewController {
         print("Cross Button Tapped")
     }
     
+    @objc func profileHeaderViewTapped(_ view: UIView) {
+        view.alpha = 0.5
+    }
 }
 
+    //MARK: - UITableViewDelegate/DataSource
 extension MenuController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return MenuOption.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MenuOptionCell
+        
+        let menuOption = MenuOption(rawValue: indexPath.row)
+        cell.descriptionLabel.text = menuOption?.description
+        cell.iconImageView.image = menuOption?.image
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = MenuHeaderView()
+        
         return view
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 130
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! MenuOptionCell
+        
     }
     
 }
