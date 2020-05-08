@@ -1,4 +1,5 @@
 PODS:
+  - CBFlashyTabBarController (0.8.3)
   - Motion (3.1.3):
     - Motion/Core (= 3.1.3)
   - Motion/Core (3.1.3)
@@ -9,20 +10,23 @@ PODS:
     - Realm (= 4.3.1)
 
 DEPENDENCIES:
+  - CBFlashyTabBarController
   - Motion (~> 3.1.0)
   - RealmSwift
 
 SPEC REPOS:
   trunk:
+    - CBFlashyTabBarController
     - Motion
     - Realm
     - RealmSwift
 
 SPEC CHECKSUMS:
+  CBFlashyTabBarController: bc6b11dd4cbc9b54785c8944156e2f4d4f03b088
   Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
   Realm: 31dc40934081ef740f60feedc46d88473cbfeb40
   RealmSwift: b5199e9a41f67b99f51acf6874a6166f5fbe93d1
 
-PODFILE CHECKSUM: c460d198905254111e5d8db5bbd9550d3ee364d9
+PODFILE CHECKSUM: d2cbcffa0dab51d2ef69ef5e11cf751ee8e2c1c8
 
 COCOAPODS: 1.8.4

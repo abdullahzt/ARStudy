@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CBFlashyTabBarController
 
-class MainTabBarController: UITabBarController {
+class MainTabBarController: CBFlashyTabBarController {
     
     //MARK: - Properties
     
@@ -38,6 +39,10 @@ class MainTabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        isMotionEnabled = false
     }
     
     init(book: Book) {
@@ -77,6 +82,7 @@ class MainTabBarController: UITabBarController {
     //MARK: - Handlers
     
     @objc func backButtonTapped() {
+        isMotionEnabled = true
         self.dismiss(animated: true, completion: nil)
     }
     

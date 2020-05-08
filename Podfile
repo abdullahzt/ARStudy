@@ -7,5 +7,6 @@ target 'ARStudy' do
 
   pod 'RealmSwift'
   pod 'Motion', '~> 3.1.0'
+  pod 'CBFlashyTabBarController'
 
 end
