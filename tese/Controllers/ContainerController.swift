@@ -87,6 +87,8 @@ class ContainerController: UIViewController {
             print("Handle Help")
         case .About:
             print("Handle About")
+        case .Profile:
+            print("Handle Profile")
         }
         
     }

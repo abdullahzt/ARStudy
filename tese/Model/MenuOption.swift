@@ -8,11 +8,14 @@
 
 import UIKit
 
+//Last value is reserved for profile header.
+//If any additional option needs to be added it must be second last.
 enum MenuOption: Int, CustomStringConvertible, CaseIterable {
     
     case Settings
     case Help
     case About
+    case Profile
     
     var description: String {
         switch self {
@@ -22,6 +25,8 @@ enum MenuOption: Int, CustomStringConvertible, CaseIterable {
             return "Help"
         case .About:
             return "About Us"
+        case .Profile:
+            return "Profile"
         }
     }
     
@@ -33,6 +38,8 @@ enum MenuOption: Int, CustomStringConvertible, CaseIterable {
             return UIImage(systemName: "lightbulb") ?? UIImage()
         case .About:
             return UIImage(systemName: "i.circle") ?? UIImage()
+        case .Profile:
+            return UIImage()
         }
     }
     

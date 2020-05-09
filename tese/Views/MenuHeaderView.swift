@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MenuHeaderDelegate {
+    func TappedMenuHeader()
+}
+
 class MenuHeaderView: UIView {
     
     //MARK: - Properties
@@ -36,6 +40,8 @@ class MenuHeaderView: UIView {
         iv.image = UIImage(named: "profile")?.withTintColor(.white)
         return iv
     }()
+    
+    var delegate : MenuHeaderDelegate?
     
     //MARK: - init
     
@@ -75,6 +81,7 @@ class MenuHeaderView: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        delegate?.TappedMenuHeader()
         UIView.animate(withDuration: 0.25) {
             self.nameLabel.alpha = 1
             self.emailLabel.alpha = 1

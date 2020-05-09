@@ -97,7 +97,8 @@ class MenuController: UIViewController {
 extension MenuController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MenuOption.allCases.count
+        //-1 as last value reseved for profile header.
+        return MenuOption.allCases.count - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -112,7 +113,7 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = MenuHeaderView()
-        
+        view.delegate = self
         return view
     }
     
@@ -122,6 +123,18 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.handleMenuToggle(menuOption: MenuOption(rawValue: indexPath.row))
+    }
+    
+}
+    
+    //MARK: - MenuHeaderDelegate
+
+extension MenuController: MenuHeaderDelegate {
+    
+    func TappedMenuHeader() {
+        //gat the last mennu option
+        let menuOption = MenuOption(rawValue: MenuOption.allCases.count - 1)
+        delegate?.handleMenuToggle(menuOption: menuOption)
     }
     
 }
