@@ -37,7 +37,7 @@ class MenuHeaderView: UIView {
         iv.clipsToBounds = true
         iv.contentMode = .scaleAspectFill
         iv.setDimensions(width: 70, height: 70)
-        iv.image = UIImage(named: "profile")?.withTintColor(.white)
+        iv.image = UIImage(named: "profile-2")?.withTintColor(.white)
         return iv
     }()
     
