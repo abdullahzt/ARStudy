@@ -14,6 +14,7 @@
 		187E0AF1245A0A5300A6472A /* CaptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E0AF0245A0A5300A6472A /* CaptionTextView.swift */; };
 		188811B52463EF9800679C68 /* betmrounded.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188811B42463EF9800679C68 /* betmrounded.ttf */; };
 		188811B72463F0D900679C68 /* betmrounded-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188811B62463F0D900679C68 /* betmrounded-semibold.ttf */; };
+		1888176C24668FE70075E8E1 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888176B24668FE70075E8E1 /* ProfileController.swift */; };
 		188B1CF724621462007B7672 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B1CF624621462007B7672 /* ContainerController.swift */; };
 		188B1CF92462146E007B7672 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B1CF82462146E007B7672 /* MenuController.swift */; };
 		1897CC8B24519B85006D6B88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CC8A24519B85006D6B88 /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 		187E0AF0245A0A5300A6472A /* CaptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionTextView.swift; sourceTree = "<group>"; };
 		188811B42463EF9800679C68 /* betmrounded.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = betmrounded.ttf; sourceTree = "<group>"; };
 		188811B62463F0D900679C68 /* betmrounded-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "betmrounded-semibold.ttf"; sourceTree = "<group>"; };
+		1888176B24668FE70075E8E1 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		188B1CF624621462007B7672 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 		188B1CF82462146E007B7672 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		1897CC8724519B85006D6B88 /* ARStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				1897CCB12451A6D6006D6B88 /* NotesViewController.swift */,
 				1843FD9D24545BA2009EC184 /* ModelViewController.swift */,
 				187E0AED2459FE9D00A6472A /* TypeNotesViewController.swift */,
+				1888176B24668FE70075E8E1 /* ProfileController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				187E0AF1245A0A5300A6472A /* CaptionTextView.swift in Sources */,
 				1843FD9E24545BA2009EC184 /* ModelViewController.swift in Sources */,
 				18420DE1245F591A0034B4EF /* MainScreenController.swift in Sources */,
+				1888176C24668FE70075E8E1 /* ProfileController.swift in Sources */,
 				188B1CF724621462007B7672 /* ContainerController.swift in Sources */,
 				18A24E9C2460A1AB00278798 /* Constants.swift in Sources */,
 				18C89C04245FF94C00272DD7 /* Book.swift in Sources */,

@@ -88,7 +88,10 @@ class ContainerController: UIViewController {
         case .About:
             print("Handle About")
         case .Profile:
-            print("Handle Profile")
+            let controller = ProfileController()
+            let nav = UINavigationController(rootViewController: controller)
+            nav.modalPresentationStyle = .fullScreen
+            present(nav, animated: true, completion: nil)
         }
         
     }
