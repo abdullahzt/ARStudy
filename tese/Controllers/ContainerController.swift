@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ContainerController: UIViewController {
     
@@ -88,10 +89,21 @@ class ContainerController: UIViewController {
         case .About:
             print("Handle About")
         case .Profile:
-            let controller = ProfileController()
-            let nav = UINavigationController(rootViewController: controller)
-            nav.modalPresentationStyle = .fullScreen
-            present(nav, animated: true, completion: nil)
+            
+            if (Auth.auth().currentUser == nil) {
+                //not logged in present login controller
+                let controller = LoginController()
+                let nav = UINavigationController(rootViewController: controller)
+                nav.modalPresentationStyle = .fullScreen
+                present(nav, animated: true, completion: nil)
+            } else {
+                //show current profile data
+                let controller = ProfileController()
+                let nav = UINavigationController(rootViewController: controller)
+                nav.modalPresentationStyle = .fullScreen
+                present(nav, animated: true, completion: nil)
+            }
+            
         }
         
     }

@@ -84,7 +84,7 @@ class ProfileController: UIViewController {
     //MARK: - Helpers
     
     func configureUI() {
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .white
         self.title = "Profile"
         
         firstNameTextField.delegate = self

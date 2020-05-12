@@ -10,6 +10,7 @@ import UIKit
 
 class Utilities {
     
+    //view for profile
     static func inputWhiteView(withTextField textField: UITextField, text: String, containsTop: Bool) -> UIView {
         
         let view = UIView()
@@ -31,8 +32,8 @@ class Utilities {
         
         let topDividerView = UIView()
         let bottomDividerView = UIView()
-        topDividerView.backgroundColor = .darkGray
-        bottomDividerView.backgroundColor = .darkGray
+        topDividerView.backgroundColor = APP_RED
+        bottomDividerView.backgroundColor = APP_RED
         
         view.addSubview(bottomDividerView)
         bottomDividerView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 12, height: 0.6)
@@ -44,5 +45,57 @@ class Utilities {
         
         return view
     }
+    
+    static func inputContainerView(textField: UITextField) -> UIView {
+        let view = UIView()
+        view.heightAnchor.constraint(equalToConstant: 60).isActive = true
+
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 60/2
+        
+        view.layer.borderColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0.2)
+        view.layer.borderWidth = 2
+        
+        view.addSubview(textField)
+        textField.centerY(inView: view, leftAnchor: view.leftAnchor, paddingLeft: 25)
+        
+        return view
+    }
+    
+    static func textField(withPlaceholder placeholder: String) -> UITextField {
+        let tf = UITextField()
+        tf.textColor = .black
+        tf.font = UIFont.systemFont(ofSize: 16)
+        tf.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        return tf
+    }
+    
+    static func mainButton(withText text: String) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(text, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = APP_RED
+        button.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        button.layer.cornerRadius = 30
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        return button
+    }
+    
+    static func attributedButton(_ firstPart: String, _ secondPart: String) -> UIButton {
+        let button = UIButton(type: .system)
+        
+        let attributedTitle = NSMutableAttributedString(string: firstPart, attributes:
+            [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
+             NSAttributedString.Key.foregroundColor: UIColor.black])
+        
+        attributedTitle.append(NSAttributedString(string: " " + secondPart, attributes:
+            [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16),
+             NSAttributedString.Key.foregroundColor: UIColor.black]))
+        
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        
+        return button
+    }
+
     
 }
