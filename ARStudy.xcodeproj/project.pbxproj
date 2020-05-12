@@ -26,6 +26,7 @@
 		1897CCAF2451A336006D6B88 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CCAE2451A336006D6B88 /* MainTabBarController.swift */; };
 		1897CCB22451A6D6006D6B88 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897CCB12451A6D6006D6B88 /* NotesViewController.swift */; };
 		18982AC0246B2084004BC755 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18982ABF246B2084004BC755 /* LoginController.swift */; };
+		18982AC2246B51B0004BC755 /* RegisterationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18982AC1246B51B0004BC755 /* RegisterationController.swift */; };
 		18A0725C245E0F79000AA8A0 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0725B245E0F79000AA8A0 /* Page.swift */; };
 		18A24E9A24609E4100278798 /* BookData in Resources */ = {isa = PBXBuildFile; fileRef = 18A24E9924609E4100278798 /* BookData */; };
 		18A24E9C2460A1AB00278798 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A24E9B2460A1AB00278798 /* Constants.swift */; };
@@ -61,6 +62,7 @@
 		1897CCAE2451A336006D6B88 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1897CCB12451A6D6006D6B88 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		18982ABF246B2084004BC755 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		18982AC1246B51B0004BC755 /* RegisterationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationController.swift; sourceTree = "<group>"; };
 		18A0725B245E0F79000AA8A0 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		18A24E9924609E4100278798 /* BookData */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BookData; path = tese/BookData; sourceTree = "<group>"; };
 		18A24E9B2460A1AB00278798 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				187E0AED2459FE9D00A6472A /* TypeNotesViewController.swift */,
 				1888176B24668FE70075E8E1 /* ProfileController.swift */,
 				18982ABF246B2084004BC755 /* LoginController.swift */,
+				18982AC1246B51B0004BC755 /* RegisterationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				1888176C24668FE70075E8E1 /* ProfileController.swift in Sources */,
 				188B1CF724621462007B7672 /* ContainerController.swift in Sources */,
 				18A24E9C2460A1AB00278798 /* Constants.swift in Sources */,
+				18982AC2246B51B0004BC755 /* RegisterationController.swift in Sources */,
 				18C89C04245FF94C00272DD7 /* Book.swift in Sources */,
 				1897CC8D24519B85006D6B88 /* SceneDelegate.swift in Sources */,
 			);

@@ -52,13 +52,13 @@ class LoginController: UIViewController {
         return view
     }()
     
-    private let loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let button = Utilities.mainButton(withText: "Login")
-        button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleLogIn), for: .touchUpInside)
         return button
     }()
     
-    private let dontHaveAccountButton: UIButton = {
+    private lazy var dontHaveAccountButton: UIButton = {
         let button = Utilities.attributedButton("Dont Have an Account?", "Sign Up")
         button.addTarget(self, action: #selector(handleSignUpController), for: .touchUpInside)
         return button
@@ -106,7 +106,7 @@ class LoginController: UIViewController {
     
     //MARK: - Handlers
     
-    @objc func loginButtonTapped() {
+    @objc func handleLogIn() {
         
     }
     
@@ -115,11 +115,13 @@ class LoginController: UIViewController {
     }
     
     @objc func handleSignUpController() {
-        
+        let registerationController = RegisterationController()
+        navigationController?.pushViewController(registerationController, animated: true)
     }
 }
 
     //MARK: - UITextFieldDelegate
+
 extension LoginController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
