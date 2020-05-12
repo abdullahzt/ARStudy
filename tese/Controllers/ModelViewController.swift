@@ -47,7 +47,7 @@ class ModelViewController: UIViewController, ARSCNViewDelegate {
             
             configuration.detectionImages = imagesToTrack
             
-            configuration.maximumNumberOfTrackedImages = 2
+            configuration.maximumNumberOfTrackedImages = 3
             
         }
         
@@ -86,6 +86,8 @@ class ModelViewController: UIViewController, ARSCNViewDelegate {
 
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         
+        print("rendering")
+        
         let node = SCNNode()
         
         if let imageAnchor = anchor as? ARImageAnchor {
@@ -102,14 +104,14 @@ class ModelViewController: UIViewController, ARSCNViewDelegate {
                     node.addChildNode(planeNode)
                     
                     if let pokeScene = SCNScene(named: "art.scnassets/\(name).scn") {
-                        
+                    
                         if let pokenode = pokeScene.rootNode.childNodes.first {
 //                            if name == "oddish" || name == "meowth" {
 //                                pokenode.eulerAngles.x = Float.pi
 //                            } else {
 //                                pokenode.eulerAngles.z = -Float.pi/2
 //                            }
-                            pokenode.position.y += 15
+                            pokenode.position.z += 0.05
                             planeNode.addChildNode(pokenode)
                         }
                     }

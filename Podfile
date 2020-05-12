@@ -8,5 +8,9 @@ target 'ARStudy' do
   pod 'RealmSwift'
   pod 'Motion', '~> 3.1.0'
   pod 'CBFlashyTabBarController'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
 
 end
