@@ -99,7 +99,9 @@ class ContainerController: UIViewController {
             } else {
                 //show current profile data
                 let controller = ProfileController()
-                let nav = UINavigationController(rootViewController: controller)
+                let loginController = LoginController()
+                let nav = UINavigationController(rootViewController: loginController)
+                nav.pushViewController(controller, animated: true)
                 nav.modalPresentationStyle = .fullScreen
                 present(nav, animated: true, completion: nil)
             }

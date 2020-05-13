@@ -107,7 +107,8 @@ class LoginController: UIViewController {
     //MARK: - Handlers
     
     @objc func handleLogIn() {
-        
+        let controller = ProfileController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc func cancelTapped() {

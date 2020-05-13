@@ -31,6 +31,7 @@
 		18A24E9A24609E4100278798 /* BookData in Resources */ = {isa = PBXBuildFile; fileRef = 18A24E9924609E4100278798 /* BookData */; };
 		18A24E9C2460A1AB00278798 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A24E9B2460A1AB00278798 /* Constants.swift */; };
 		18BE0B4E246B03470023FC2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BE0B4D246B03470023FC2F /* GoogleService-Info.plist */; };
+		18BEC8B1246BD71300C657D7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BEC8B0246BD71300C657D7 /* AuthService.swift */; };
 		18C89C02245FF56500272DD7 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C89C01245FF56500272DD7 /* BookCell.swift */; };
 		18C89C04245FF94C00272DD7 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C89C03245FF94C00272DD7 /* Book.swift */; };
 		18E975A02466BF580042A162 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9759F2466BF580042A162 /* Utilities.swift */; };
@@ -67,6 +68,7 @@
 		18A24E9924609E4100278798 /* BookData */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BookData; path = tese/BookData; sourceTree = "<group>"; };
 		18A24E9B2460A1AB00278798 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		18BE0B4D246B03470023FC2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18BEC8B0246BD71300C657D7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		18C89C01245FF56500272DD7 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		18C89C03245FF94C00272DD7 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		18E9759F2466BF580042A162 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				188811B12463E9A200679C68 /* fonts */,
 				18A0725A245E0D6A000AA8A0 /* Model */,
 				187E0AEF245A0A3A00A6472A /* Views */,
+				18BEC8AF246BD6E300C657D7 /* API */,
 				1897CCB02451A3D5006D6B88 /* Controllers */,
 				1843FD9C24543A86009EC184 /* Utilities */,
 				1897CCAC2451A05E006D6B88 /* art.scnassets */,
@@ -184,6 +187,14 @@
 				18ED6A65246596FC00E8B6CF /* MenuOption.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		18BEC8AF246BD6E300C657D7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				18BEC8B0246BD71300C657D7 /* AuthService.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		6FB10EB7E6148B0ED49E8BE7 /* Frameworks */ = {
@@ -337,6 +348,7 @@
 				18EF2CF32462B3B700F8FD16 /* MenuOptionCell.swift in Sources */,
 				188B1CF92462146E007B7672 /* MenuController.swift in Sources */,
 				187E0AF1245A0A5300A6472A /* CaptionTextView.swift in Sources */,
+				18BEC8B1246BD71300C657D7 /* AuthService.swift in Sources */,
 				1843FD9E24545BA2009EC184 /* ModelViewController.swift in Sources */,
 				18420DE1245F591A0034B4EF /* MainScreenController.swift in Sources */,
 				1888176C24668FE70075E8E1 /* ProfileController.swift in Sources */,

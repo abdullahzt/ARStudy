@@ -71,6 +71,7 @@ class ProfileController: UIViewController {
         button.setTitle("Sign Out", for: .normal)
         button.setTitleColor(APP_RED, for: .normal)
         button.setDimensions(width: 70, height: 40)
+        button.addTarget(self, action: #selector(signOutTapped), for: .touchUpInside)
         return button
     }()
     //MARK: - LifeCycle
@@ -124,6 +125,10 @@ class ProfileController: UIViewController {
         self.dismiss(animated: true) {
             //saving code here
         }
+    }
+    
+    @objc func signOutTapped() {
+        navigationController?.popViewController(animated: true)
     }
 }
 

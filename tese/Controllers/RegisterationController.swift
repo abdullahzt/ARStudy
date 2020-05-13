@@ -41,13 +41,13 @@ class RegisterationController: UIViewController {
         return view
     }()
     
-    private let InstituteTextField: UITextField = {
+    private let instituteTextField: UITextField = {
         let textField = Utilities.textField(withPlaceholder: "Institute")
         return textField
     }()
     
     private lazy var InstituteContainerView: UIView = {
-        let view = Utilities.inputContainerView(textField: InstituteTextField)
+        let view = Utilities.inputContainerView(textField: instituteTextField)
         return view
     }()
     
@@ -96,7 +96,7 @@ class RegisterationController: UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         fullNameTextField.delegate = self
-        InstituteTextField.delegate = self
+        instituteTextField.delegate = self
         
         view.addSubview(titleLabel)
         titleLabel.centerX(inView: self.view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 15)
@@ -112,6 +112,25 @@ class RegisterationController: UIViewController {
     
     @objc func handleSignUp() {
         
+        emailTextField.endEditing(true)
+        passwordTextField.endEditing(true)
+        instituteTextField.endEditing(true)
+        fullNameTextField.endEditing(true)
+        
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let fullname = fullNameTextField.text else { return }
+        guard let institute = instituteTextField.text else { return }
+        
+        let credentials = AuthCredentials(email: email, password: password, fullname: fullname, institute: institute)
+        
+        AuthService.shared.registerUser(credentials: credentials, view: self.view) { (error, ref) in
+            
+            //User successfully logged in
+            let controller = ProfileController()
+            self.navigationController?.pushViewController(controller, animated: true)
+            
+        }
     }
 }
 
