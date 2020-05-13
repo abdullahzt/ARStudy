@@ -44,6 +44,7 @@ class LoginController: UIViewController {
     private let passwordTextField: UITextField = {
         let textField = Utilities.textField(withPlaceholder: "Password")
         textField.isSecureTextEntry = true
+
         return textField
     }()
     
@@ -107,8 +108,33 @@ class LoginController: UIViewController {
     //MARK: - Handlers
     
     @objc func handleLogIn() {
-        let controller = ProfileController()
-        navigationController?.pushViewController(controller, animated: true)
+        
+        passwordTextField.endEditing(true)
+        emailTextField.endEditing(true)
+        
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        AuthService.shared.logUserIn(withEmail: email, withPassword: password) { (result, error) in
+            if let loginError = error {
+                print("DEBUG ERROR LOGGING IN: \(loginError.localizedDescription)")
+                return
+            }
+            //Successful login
+            
+            //Remove user so that menu container shows loads again
+            let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            let containerController = keyWindow?.rootViewController as! ContainerController
+            
+            containerController.menuController.view.removeFromSuperview()
+            containerController.menuController.removeFromParent()
+            containerController.menuController = nil
+            containerController.user = nil
+            
+            let controller = ProfileController()
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+        
     }
     
     @objc func cancelTapped() {
@@ -121,7 +147,7 @@ class LoginController: UIViewController {
     }
 }
 
-    //MARK: - UITextFieldDelegate
+//MARK: - UITextFieldDelegate
 
 extension LoginController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

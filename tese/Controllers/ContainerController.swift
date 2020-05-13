@@ -13,6 +13,8 @@ class ContainerController: UIViewController {
     
     //MARK: - Properties
     
+    var user: User?
+    
     var menuController: MenuController!
     var centerController: MainScreenController!
     
@@ -27,8 +29,22 @@ class ContainerController: UIViewController {
         view.backgroundColor = UIColor(white: 1, alpha: 0.7)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchUser()
+        super.viewWillAppear(animated)
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
+    }
+    
+    //MARK: - API
+    
+    func fetchUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserService.shared.fetchUser(uid: uid) { (user) in
+            self.user = user
+        }
     }
     
     //MARK: - Helpers
@@ -46,7 +62,7 @@ class ContainerController: UIViewController {
     func configureMenuController() {
         if menuController == nil {
             //first time opening
-            menuController = MenuController()
+            menuController = MenuController(user: user)
             menuController.delegate = self
             
             view.insertSubview(menuController.view, at: 0)
@@ -111,6 +127,8 @@ class ContainerController: UIViewController {
     }
     
 }
+
+    //MARK: - HomeController Delegate
 
 extension ContainerController: HomeControllerDelegate {
     func handleMenuToggle(menuOption: MenuOption?) {

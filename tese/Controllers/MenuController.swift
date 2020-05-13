@@ -14,6 +14,8 @@ class MenuController: UIViewController {
     
     //MARK: - Properties
     
+    var user: User?
+    
     var tableView: UITableView!
     
     private let titleLabel: UILabel = {
@@ -54,6 +56,15 @@ class MenuController: UIViewController {
         view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         
         view.backgroundColor = .white
+    }
+    
+    init(user: User?) {
+        self.user = user
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     //MARK: - Helpers
@@ -113,6 +124,7 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = MenuHeaderView()
+        view.user = user
         view.delegate = self
         return view
     }

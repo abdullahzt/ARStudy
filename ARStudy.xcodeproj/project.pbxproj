@@ -32,6 +32,8 @@
 		18A24E9C2460A1AB00278798 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A24E9B2460A1AB00278798 /* Constants.swift */; };
 		18BE0B4E246B03470023FC2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BE0B4D246B03470023FC2F /* GoogleService-Info.plist */; };
 		18BEC8B1246BD71300C657D7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BEC8B0246BD71300C657D7 /* AuthService.swift */; };
+		18BEC8B3246BE56B00C657D7 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BEC8B2246BE56B00C657D7 /* UserService.swift */; };
+		18BEC8B5246BE5C200C657D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BEC8B4246BE5C200C657D7 /* User.swift */; };
 		18C89C02245FF56500272DD7 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C89C01245FF56500272DD7 /* BookCell.swift */; };
 		18C89C04245FF94C00272DD7 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C89C03245FF94C00272DD7 /* Book.swift */; };
 		18E975A02466BF580042A162 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9759F2466BF580042A162 /* Utilities.swift */; };
@@ -69,6 +71,8 @@
 		18A24E9B2460A1AB00278798 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		18BE0B4D246B03470023FC2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18BEC8B0246BD71300C657D7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		18BEC8B2246BE56B00C657D7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		18BEC8B4246BE5C200C657D7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		18C89C01245FF56500272DD7 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		18C89C03245FF94C00272DD7 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		18E9759F2466BF580042A162 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 				18A0725B245E0F79000AA8A0 /* Page.swift */,
 				18C89C03245FF94C00272DD7 /* Book.swift */,
 				18ED6A65246596FC00E8B6CF /* MenuOption.swift */,
+				18BEC8B4246BE5C200C657D7 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				18BEC8B0246BD71300C657D7 /* AuthService.swift */,
+				18BEC8B2246BE56B00C657D7 /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -333,7 +339,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BEC8B5246BE5C200C657D7 /* User.swift in Sources */,
 				18C89C02245FF56500272DD7 /* BookCell.swift in Sources */,
+				18BEC8B3246BE56B00C657D7 /* UserService.swift in Sources */,
 				1897CCA124519C5C006D6B88 /* Extension.swift in Sources */,
 				1897CC8B24519B85006D6B88 /* AppDelegate.swift in Sources */,
 				187E0AEE2459FE9D00A6472A /* TypeNotesViewController.swift in Sources */,

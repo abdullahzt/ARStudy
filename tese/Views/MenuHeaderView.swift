@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol MenuHeaderDelegate {
     func TappedMenuHeader()
@@ -15,6 +16,12 @@ protocol MenuHeaderDelegate {
 class MenuHeaderView: UIView {
     
     //MARK: - Properties
+    
+    var user: User? {
+        didSet {
+            configure()
+        }
+    }
     
     private let nameLabel: UILabel = {
         let label = UILabel()
@@ -69,6 +76,15 @@ class MenuHeaderView: UIView {
         
         addSubview(stack)
         stack.anchor(top: topAnchor, left: profileImageView.rightAnchor, paddingTop: 40, paddingLeft: 10)
+    }
+    
+    func configure() {
+
+        guard let currentUser = user else { return }
+        
+        self.nameLabel.text = currentUser.fullname
+        self.emailLabel.text = currentUser.email
+
     }
     
     //MARK: - TouchAction

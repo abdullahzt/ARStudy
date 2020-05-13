@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileController: UIViewController {
     
     //MARK: - Properties
+    
+    var user: User? {
+        didSet {
+            configureUser()
+        }
+    }
     
     private lazy var actionButton: UIButton = {
         let button = UIButton(type: .system)
@@ -38,21 +45,21 @@ class ProfileController: UIViewController {
         return iv
     }()
     
-    private let firstNameTextField: UITextField = {
+    private let fullNameTextField: UITextField = {
         return UITextField()
     }()
     
-    private lazy var firstNameView: UIView = {
-        let view = Utilities.inputWhiteView(withTextField: firstNameTextField, text: "First Name", containsTop: true)
+    private lazy var fullNameView: UIView = {
+        let view = Utilities.inputWhiteView(withTextField: fullNameTextField, text: "Full Name", containsTop: true)
         return view
     }()
     
-    private let lastNameTextField: UITextField = {
+    private let instituteTextField: UITextField = {
         return UITextField()
     }()
     
-    private lazy var lastNameView: UIView = {
-        let view = Utilities.inputWhiteView(withTextField: lastNameTextField, text: "Last Name", containsTop: false)
+    private lazy var instituteNameView: UIView = {
+        let view = Utilities.inputWhiteView(withTextField: instituteTextField, text: "Institute", containsTop: false)
         return view
     }()
     
@@ -79,7 +86,18 @@ class ProfileController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchUser()
+        
         configureUI()
+    }
+    
+    //MARK: - API
+    
+    func fetchUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserService.shared.fetchUser(uid: uid) { (user) in
+            self.user = user
+        }
     }
     
     //MARK: - Helpers
@@ -88,8 +106,8 @@ class ProfileController: UIViewController {
         view.backgroundColor = .white
         self.title = "Profile"
         
-        firstNameTextField.delegate = self
-        lastNameTextField.delegate = self
+        fullNameTextField.delegate = self
+        instituteTextField.delegate = self
         emailTextField.delegate = self
         
         configureNavigationBar()
@@ -98,7 +116,7 @@ class ProfileController: UIViewController {
         profileImageView.centerX(inView: self.view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 15)
         
         
-        let inputStack = UIStackView(arrangedSubviews: [firstNameView, lastNameView, emailView])
+        let inputStack = UIStackView(arrangedSubviews: [fullNameView, instituteNameView, emailView])
         inputStack.axis = .vertical
         
         view.addSubview(inputStack)
@@ -109,15 +127,21 @@ class ProfileController: UIViewController {
     }
     
     func configureNavigationBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
         navigationItem.leftBarButtonItem?.tintColor = APP_RED
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: actionButton)
     }
     
+    func configureUser() {
+        emailTextField.text = user?.email
+        instituteTextField.text = user?.institute
+        fullNameTextField.text = user?.fullname
+    }
+    
     //MARK: - Handlers
     
-    @objc func cancelTapped() {
+    @objc func doneTapped() {
         self.dismiss(animated: true)
     }
     
@@ -128,7 +152,26 @@ class ProfileController: UIViewController {
     }
     
     @objc func signOutTapped() {
-        navigationController?.popViewController(animated: true)
+        
+        do {
+            try Auth.auth().signOut()
+            
+            //Remove user so that menu container shows loads again
+            let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            let containerController = keyWindow?.rootViewController as! ContainerController
+            
+            containerController.menuController.view.removeFromSuperview()
+            containerController.menuController.removeFromParent()
+            containerController.menuController = nil
+            containerController.user = nil
+            
+            self.navigationController?.popViewController(animated: true)
+            
+            
+        } catch {
+            print("Error signing out: \(error.localizedDescription)")
+        }
+        
     }
 }
 

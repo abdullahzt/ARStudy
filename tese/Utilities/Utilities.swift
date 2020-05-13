@@ -58,6 +58,7 @@ class Utilities {
         
         view.addSubview(textField)
         textField.centerY(inView: view, leftAnchor: view.leftAnchor, paddingLeft: 25)
+        textField.anchor(right: view.rightAnchor, paddingRight: 10)
         
         return view
     }
