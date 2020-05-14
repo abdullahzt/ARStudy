@@ -64,7 +64,10 @@ class ProfileController: UIViewController {
     }()
     
     private let emailTextField: UITextField = {
-        return UITextField()
+        let tf = UITextField()
+        tf.isEnabled = false
+        tf.alpha = 0.5
+        return tf
     }()
     
     private lazy var emailView: UIView = {
@@ -153,6 +156,22 @@ class ProfileController: UIViewController {
     
     @objc func signOutTapped() {
         
+        let logoutAlert = UIAlertController(title: nil, message: "Log out of your account?", preferredStyle: UIAlertController.Style.alert)
+
+        logoutAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            self.signUserOut()
+        }))
+
+        logoutAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            logoutAlert.dismiss(animated: true, completion: nil)
+        }))
+
+        present(logoutAlert, animated: true, completion: nil)
+        
+                
+    }
+    
+    func signUserOut() {
         do {
             try Auth.auth().signOut()
             
@@ -171,7 +190,7 @@ class ProfileController: UIViewController {
         } catch {
             print("Error signing out: \(error.localizedDescription)")
         }
-        
+
     }
 }
 
