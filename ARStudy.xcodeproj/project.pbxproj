@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1823942B246DA062004B7CB4 /* AddPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823942A246DA062004B7CB4 /* AddPageModel.swift */; };
+		183308E5246D2C3D008C8E0D /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183308E4246D2C3D008C8E0D /* BookService.swift */; };
+		183308E7246D39D4008C8E0D /* PageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183308E6246D39D4008C8E0D /* PageService.swift */; };
 		18420DE1245F591A0034B4EF /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18420DE0245F591A0034B4EF /* MainScreenController.swift */; };
 		1843FD9E24545BA2009EC184 /* ModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843FD9D24545BA2009EC184 /* ModelViewController.swift */; };
 		1844A313245768A10001588A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1844A312245768A10001588A /* Assets.xcassets */; };
@@ -44,6 +47,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1823942A246DA062004B7CB4 /* AddPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPageModel.swift; sourceTree = "<group>"; };
+		183308E4246D2C3D008C8E0D /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
+		183308E6246D39D4008C8E0D /* PageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageService.swift; sourceTree = "<group>"; };
 		18420DE0245F591A0034B4EF /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		1843FD9D24545BA2009EC184 /* ModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewController.swift; sourceTree = "<group>"; };
 		1844A312245768A10001588A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 				18C89C03245FF94C00272DD7 /* Book.swift */,
 				18ED6A65246596FC00E8B6CF /* MenuOption.swift */,
 				18BEC8B4246BE5C200C657D7 /* User.swift */,
+				1823942A246DA062004B7CB4 /* AddPageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,6 +206,8 @@
 			children = (
 				18BEC8B0246BD71300C657D7 /* AuthService.swift */,
 				18BEC8B2246BE56B00C657D7 /* UserService.swift */,
+				183308E4246D2C3D008C8E0D /* BookService.swift */,
+				183308E6246D39D4008C8E0D /* PageService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -360,8 +369,11 @@
 				1843FD9E24545BA2009EC184 /* ModelViewController.swift in Sources */,
 				18420DE1245F591A0034B4EF /* MainScreenController.swift in Sources */,
 				1888176C24668FE70075E8E1 /* ProfileController.swift in Sources */,
+				1823942B246DA062004B7CB4 /* AddPageModel.swift in Sources */,
 				188B1CF724621462007B7672 /* ContainerController.swift in Sources */,
+				183308E7246D39D4008C8E0D /* PageService.swift in Sources */,
 				18A24E9C2460A1AB00278798 /* Constants.swift in Sources */,
+				183308E5246D2C3D008C8E0D /* BookService.swift in Sources */,
 				18982AC2246B51B0004BC755 /* RegisterationController.swift in Sources */,
 				18C89C04245FF94C00272DD7 /* Book.swift in Sources */,
 				1897CC8D24519B85006D6B88 /* SceneDelegate.swift in Sources */,

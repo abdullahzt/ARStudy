@@ -12,5 +12,7 @@ import RealmSwift
 class Book: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var IBAN: String = ""
+    @objc dynamic var bookID: String = ""
+    @objc dynamic var numberOfPages: Int = 0
     let pages = List<Page>()
 }

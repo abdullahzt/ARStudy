@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import Motion
+import Firebase
 
 private let reuseIdentifier = "BookCell"
 
@@ -95,24 +96,35 @@ class MainScreenController: UICollectionViewController {
             //first time launch.
             print("DEBUG: first time launch.")
             
-            let book = Book()
-            book.title = "IGCSE Biology"
-            book.IBAN = "978-0-521-14779-8"
-            self.save(book: book)
             
-            let page10 = Page()
-            page10.title = "page-10"
-            
-            let page11 = Page()
-            page11.title = "page-11"
-            
-            do {
-                try realm.write {
-                    book.pages.append(page10)
-                    book.pages.append(page11)
+            BookService.shared.fetchBook(uid: "-M7H5dvNNNykso6mVy5z") { (book) in
+                
+                print("DEBUG: did fetch book.")
+                
+                self.save(book: book)
+                
+                let userID = Auth.auth().currentUser?.uid ?? "4FL8XjWqcOfUhzdvGNMxibFOBM93"
+                
+                let addPageModel = AddPageModel()
+                
+                PageService.shared.checkIfPageIsPresent(uid: userID, bookID: book.bookID) { (snapshot) in
+                    
+                    if snapshot.exists() {
+                        for children in snapshot.children {
+                            let child = children as! DataSnapshot
+                            PageService.shared.fetchPage(pageID: child.key) { (pageData) in
+                                addPageModel.addLocalPage(withData: pageData, id: child.key, inBook: book)
+                            }
+                        }
+                    } else {
+                        addPageModel.addLocalAndCloudPage(title: "page-10", bookID: book.bookID, userID: userID, inBook: book)
+                        addPageModel.addLocalAndCloudPage(title: "page-11", bookID: book.bookID, userID: userID, inBook: book)
+                    }
+                    
                 }
-            } catch {
-                print("Error saving context:  \(error)")
+                
+                self.collectionView.reloadData()
+                
             }
             
         }
@@ -145,10 +157,10 @@ class MainScreenController: UICollectionViewController {
         
         view.addSubview(title)
         title.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 23)
-
+        
         view.addSubview(menuButton)
         menuButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, paddingTop: 20, paddingLeft: 20, width: 25, height: 25)
-
+        
     }
     
     //MARK: - Handlers
@@ -161,12 +173,12 @@ class MainScreenController: UICollectionViewController {
         
         view.addSubview(blackView)
         blackView.frame = view.frame
-
+        
         UIView.animate(withDuration: 0.3) {
             let value = self.isExpanded ? 0 : 1
             self.blackView.alpha = CGFloat(value)
         }
-
+        
         isExpanded = !isExpanded
         
         delegate?.handleMenuToggle(menuOption: nil)
@@ -226,11 +238,11 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
+        
         let leftInset = CGFloat(10)
         let rightInset = leftInset
-
+        
         return UIEdgeInsets(top: 65, left: leftInset, bottom: 0, right: rightInset)
-
+        
     }
 }

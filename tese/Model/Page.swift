@@ -12,5 +12,8 @@ import RealmSwift
 class Page: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var note: String = ""
+    @objc dynamic var bookID: String = ""
+    @objc dynamic var userID: String = ""
+    @objc dynamic var pageID: String = ""
     var parentBook = LinkingObjects(fromType: Book.self, property: "pages")
 }
