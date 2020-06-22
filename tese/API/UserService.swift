@@ -24,4 +24,10 @@ struct UserService {
         
     }
     
+    func updateUser(id: String, updates: [String: Any], completion: @escaping(Error?, DatabaseReference) -> Void) {
+        
+        REF_USERS.child(id).updateChildValues(updates, withCompletionBlock: completion)
+        
+    }
+    
 }

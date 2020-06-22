@@ -149,9 +149,26 @@ class ProfileController: UIViewController {
     }
     
     @objc func saveButtonTapped() {
-        self.dismiss(animated: true) {
-            //saving code here
+        
+        guard let id = user?.uid else { return }
+        
+        let updates = [
+            "fullname": fullNameTextField.text,
+            "institute": instituteTextField.text
+        ]
+        
+        UserService.shared.updateUser(id: id, updates: updates) { (error, ref) in
+            if let updateError = error {
+                Utilities.showAlert(withMessage: updateError.localizedDescription, target: self)
+                return
+            }
+            
+            // Successfully updated data
+            
+            Utilities.showAlert(withMessage: "Successfully updated data", target: self)
+
         }
+    
     }
     
     @objc func signOutTapped() {

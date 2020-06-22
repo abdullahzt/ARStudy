@@ -97,6 +97,16 @@ class Utilities {
         
         return button
     }
+    
+    // Call this any where in app to show an iOS styled alert.
+    
+    static func showAlert(withMessage message: String, target: UIViewController) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        target.present(alert, animated: true, completion: nil)
+    }
 
     
 }
