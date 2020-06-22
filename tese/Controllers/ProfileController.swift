@@ -152,6 +152,7 @@ class ProfileController: UIViewController {
         
         guard let id = user?.uid else { return }
         
+        //user cant update his email.
         let updates = [
             "fullname": fullNameTextField.text,
             "institute": instituteTextField.text

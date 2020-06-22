@@ -113,6 +113,8 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
     
     func handlePageAppear(withImageAnchor bookImageAnchor: ARImageAnchor) {
         
+        syncNotes()
+        
         let bookImageName = bookImageAnchor.referenceImage.name!
 
         DispatchQueue.main.sync {
@@ -120,6 +122,8 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
             print("DEBUG: page is: \(self.pageArray![0].title)")
             self.selectedPage = self.pageArray?[0]
             self.noteText = self.selectedPage?.note
+            
+            syncNotes()
         }
         
         DispatchQueue.main.async {
@@ -164,6 +168,24 @@ class NotesViewController: UIViewController, ARSCNViewDelegate {
         
         return text
         
+    }
+    
+    func syncNotes() {
+        //The function will update notes in case they are not simmilar to the one on database.
+        guard let id = selectedPage?.pageID else { return }
+        
+        if id == "" {
+            return
+        }
+        
+        PageService.shared.fetchPage(pageID: id) { (pageData) in
+            let notes = pageData["note"] as! String
+            
+            try! self.realm.write {
+                self.selectedPage?.note = notes
+            }
+            
+        }
     }
     
     //MARK: - Handlers

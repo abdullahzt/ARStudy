@@ -48,6 +48,16 @@ class TypeNotesViewController: UIViewController, UITextViewDelegate {
         try! realm.write {
             selectedPage.note = notesTextView.text
         }
+        
+        let updates = [
+            "note": notesTextView.text
+        ]
+        
+        PageService.shared.updatePage(id: selectedPage.pageID, updates: updates) { (err, ref) in
+            if let error = err {
+                print("DEBUG: Error saving page: \(error.localizedDescription)")
+            }
+        }
     }
     
     init(page: Page) {

@@ -53,6 +53,12 @@ struct PageService {
             completion(pageData)
         }
     }
+    
+    func updatePage(id: String, updates: [String: Any], completion: @escaping(Error?, DatabaseReference) -> Void) {
+        
+        REF_PAGES.child(id).updateChildValues(updates, withCompletionBlock: completion)
+        
+    }
 }
 
 
