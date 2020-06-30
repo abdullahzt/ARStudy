@@ -9,9 +9,9 @@ An app through which you can interact with your books, by rendering your notes, 
 * Realm
 
 <p align="center">
-<img src="mockups/main.png" width="250"  title="Main Screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="mockups/side-menu.png" width="250" title="feed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="mockups/profile.png" width="250" title="Side Menu">
+<img src="mockup/main.png" width="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="mockup/side-menu.png" width="250" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="mockup/profile.png" width="250">
 </p>
 
 <p align="center">
-<img src="mockups/video.png" width="250"  title="Main Screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="mockups/model.png" width="250" title="feed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="mockups/notes.png" width="250" title="Side Menu">
+<img src="mockup/video.png" width="250" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="mockup/model.png" width="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="mockup/notes.png" width="250" >
 </p>
